@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-segment value="all" mode="ios">
+      <ion-segment-button value="all">
+        Achived
+      </ion-segment-button>
+      <ion-segment-button value="favorites">
+        Wanted
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="false">
+  <ion-list [inset]="true" mode="ios">
+    <ion-item button detail="true">
+      <ion-label>Pokémon Yellow</ion-label>
+    </ion-item>
+    <ion-item button detail="true">
+      <ion-label>Mega Man X</ion-label>
+    </ion-item>
+    <ion-item button detail="true">
+      <ion-label>The Legend of Zelda</ion-label>
+    </ion-item>
+    <ion-item button detail="true">
+      <ion-label>Pac-Man</ion-label>
+    </ion-item>
+    <ion-item button detail="true">
+      <ion-label>Super Mario World</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
