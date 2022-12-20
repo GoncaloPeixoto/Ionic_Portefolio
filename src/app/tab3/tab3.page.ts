@@ -9,8 +9,12 @@ export class Tab3Page {
 
   constructor() {}
 
-  OpenLI(url:string){
-    window.open(url,'_system','location=yes')
-  }
+  items = ['Item 1', 'Item 2', 'Item 3'];
 
+clearList() {
+  this.items.splice(0, this.items.length);
 }
+}
+
+
+

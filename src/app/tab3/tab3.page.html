@@ -7,19 +7,48 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-text-center">
+
   <h1>My Social Medias</h1>
+  <a [attr.href]="'https://github.com/GoncaloPeixoto'">
   <ion-button size="large">
     <ion-icon name="logo-github"></ion-icon>
   </ion-button>
+</a>
+<a [attr.href]="'https://www.linkedin.com/in/gonçalo-peixoto-8a0a03234/'">
   <ion-button size="large">
-    <ion-icon name="logo-linkedin" (click)="OpenLI('https://www.linkedin.com/in/gonçalo-peixoto-8a0a03234/')"></ion-icon>Nao funciona
+    <ion-icon name="logo-linkedin"></ion-icon>
   </ion-button>
+</a>
+<a [attr.href]="'https://discord.gg/tuPEMA88JH'">
   <ion-button size="large">
     <ion-icon name="logo-discord"></ion-icon>
   </ion-button>
+</a>
+<a [attr.href]="'https://www.instagram.com/goncalo181/'">
   <ion-button size="large">
     <ion-icon name="logo-instagram"></ion-icon>
   </ion-button>
+</a>
   <h1>Send Me a Message</h1>
+
+  <ion-list>
+
+  <ion-item>
+    <ion-label>Name</ion-label>
+    <ion-input placeholder="Enter your name"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Message</ion-label>
+    <ion-input placeholder="Enter your message"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Email input</ion-label>
+    <ion-input type="email" placeholder="email@domain.com"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="clearList()">Fake Send</ion-button>
+</ion-list>
 
 </ion-content>
