@@ -1,18 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-segment value="all" mode="ios">
-      <ion-segment-button value="all">
-        Achived
+    <ion-segment (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="Achived">
+        <ion-label>Achived</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="favorites">
-        Wanted
+      <ion-segment-button value="Wanted">
+        <ion-label>Wanted</ion-label>
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="false">
-  <ion-list [inset]="true" mode="ios">
+  <ion-list [inset]="true">
     <ion-item button detail="true">
       <ion-label>Pokémon Yellow</ion-label>
     </ion-item>
