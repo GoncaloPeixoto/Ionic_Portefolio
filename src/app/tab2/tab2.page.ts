@@ -7,9 +7,13 @@ import { Component,OnInit } from '@angular/core';
 })
 export class Tab2Page {
 
-  segmentChanged(ev: any) {
-    console.log('Segment changed', ev);
-  }
+  type = "segment value";
 
   constructor() {}
+
+  segmentChanged(event: any) {
+    console.log('Segment changed', event);
+  }
+
+
 }

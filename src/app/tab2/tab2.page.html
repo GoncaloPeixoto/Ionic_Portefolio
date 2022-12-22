@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-segment (ionChange)="segmentChanged($event)">
+    <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="type">
       <ion-segment-button value="Achived">
         <ion-label>Achived</ion-label>
       </ion-segment-button>
@@ -11,8 +11,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="false">
-  <ion-list [inset]="true">
+<ion-content [fullscreen]="false" [ngSwitch]="type">
+  <ion-list [inset]="true" *ngSwitchCase="'Achived'">
     <ion-item>
       <ion-label>Pokémon Yellow</ion-label>
       <ion-button>Saber Mais</ion-button>
@@ -32,6 +32,29 @@
     <ion-item >
       <ion-label>Super Mario World</ion-label>
       <ion-button>Saber Mais</ion-button>
+    </ion-item>
+  </ion-list>
+
+    <ion-list [inset]="true" *ngSwitchCase="'Wanted'">
+    <ion-item disabled="true">
+      <ion-label>Pokémon Yellow222222222222</ion-label>
+
+    </ion-item>
+    <ion-item disabled="true">
+      <ion-label>Mega Man X</ion-label>
+
+    </ion-item>
+    <ion-item disabled="true">
+      <ion-label>The Legend of Zelda</ion-label>
+
+    </ion-item>
+    <ion-item disabled="true">
+      <ion-label>Pac-Man</ion-label>
+
+    </ion-item>
+    <ion-item disabled="true">
+      <ion-label>Super Mario World</ion-label>
+
     </ion-item>
   </ion-list>
 </ion-content>
