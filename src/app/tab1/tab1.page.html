@@ -4,11 +4,14 @@
     <ion-title>
       About Me
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-toggle (ionChange)="toggleTheme($event)"></ion-toggle>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-card>
-  <img alt="Me" src="../../assets/images/Me.jpeg" class="ion-img" height="250px!important" margin="0"/>
+<ion-card color="dark">
+  <img alt="Me" src="../../assets/images/Me.jpeg" class="ion-img" height="250px!important" margin="0" />
   <ion-card-content>
     Welcome
   </ion-card-content>
