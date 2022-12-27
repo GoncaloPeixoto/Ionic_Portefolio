@@ -8,53 +8,132 @@
         <ion-label>Wanted</ion-label>
       </ion-segment-button>
     </ion-segment>
+    <ion-buttons slot="end">
+      <!-- <ion-toggle (ionChange)="toggleTheme($event)"></ion-toggle> -->
+      <ion-button (click)="changeLanguage('en')">
+        {{'en' | translate }}
+        </ion-button>
+        <ion-button (click)="changeLanguage('pt')">
+        {{'pt' | translate }}
+        </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="false" [ngSwitch]="type">
   <ion-list [inset]="true" *ngSwitchCase="'Achived'">
+    <ion-item-group>
+      <!-- Academic Achivements/Skills -->
+      <ion-item-divider>
+        <ion-label>Academic Achivements/Skills</ion-label>
+      </ion-item-divider>
     <ion-item>
-      <ion-label>Pokémon Yellow</ion-label>
+      <ion-label>Certificate in English (C1 Advanced)</ion-label>
       <ion-button>Saber Mais</ion-button>
     </ion-item>
     <ion-item >
-      <ion-label>Mega Man X</ion-label>
+      <ion-label>Finished 12º Grade</ion-label>
       <ion-button>Saber Mais</ion-button>
+    </ion-item>
+    <!-- Personal Experiences -->
+    <ion-item-divider>
+      <ion-label>Personal Experiences</ion-label>
+    </ion-item-divider>
+    <ion-item >
+      <ion-label>4+ Years in customer service at restaurant</ion-label>
+      <ion-button>Saber Mais</ion-button>
+    </ion-item>
+    <!-- Programming skills -->
+    <ion-item-divider>
+      <ion-label>Programming skills</ion-label>
+    </ion-item-divider>
+    <ion-item >
+      <ion-label>HTML</ion-label>
     </ion-item>
     <ion-item >
-      <ion-label>The Legend of Zelda</ion-label>
-      <ion-button>Saber Mais</ion-button>
+      <ion-label>CSS</ion-label>
     </ion-item>
     <ion-item >
-      <ion-label>Pac-Man</ion-label>
-      <ion-button>Saber Mais</ion-button>
+      <ion-label>JavaScript</ion-label>
     </ion-item>
     <ion-item >
-      <ion-label>Super Mario World</ion-label>
-      <ion-button>Saber Mais</ion-button>
+      <ion-label>React</ion-label>
     </ion-item>
+    <ion-item >
+      <ion-label>Ionic</ion-label>
+    </ion-item>
+    <ion-item >
+      <ion-label>SQL</ion-label>
+    </ion-item>
+    <!-- Other skills -->
+    <ion-item-divider>
+      <ion-label>Other skills</ion-label>
+    </ion-item-divider>
+    <ion-item >
+      <ion-label>Photo editing with Photoshop</ion-label>
+    </ion-item>
+    <ion-item >
+      <ion-label>Creation of vector with Adobe Ilustrator</ion-label>
+    </ion-item>
+    <ion-item >
+      <ion-label>Video editing with Adobe Premiere/After Efects</ion-label>
+    </ion-item>
+    <ion-item >
+      <ion-label>3D Model creation/animation with AutoDesk Maya</ion-label>
+    </ion-item>
+     <!-- Random achievements -->
+     <ion-item-divider>
+      <ion-label>Random achievements</ion-label>
+    </ion-item-divider>
+    <ion-item >
+      <ion-label>I'm taking part at my local Scouts</ion-label>
+    </ion-item>
+    <ion-item >
+      <ion-label>I do 3d printing as a hobby</ion-label>
+    </ion-item>
+    <ion-item >
+      <ion-label>I do photography and video editing as a hobby</ion-label>
+    </ion-item>
+  </ion-item-group>
   </ion-list>
 
     <ion-list [inset]="true" *ngSwitchCase="'Wanted'">
-    <ion-item disabled="true">
-      <ion-label>Pokémon Yellow222222222222</ion-label>
+      <ion-item-group>
 
-    </ion-item>
-    <ion-item disabled="true">
-      <ion-label>Mega Man X</ion-label>
+        <!-- Academic Achivements/Skills -->
+    <ion-item-divider>
+      <ion-label>Academic Achivements/Skills</ion-label>
+    </ion-item-divider>
 
-    </ion-item>
     <ion-item disabled="true">
-      <ion-label>The Legend of Zelda</ion-label>
-
+      <ion-label>Have and advenced knowledge and understanding of Germna </ion-label>
     </ion-item>
+  
     <ion-item disabled="true">
-      <ion-label>Pac-Man</ion-label>
-
+      <ion-label>222</ion-label>
     </ion-item>
+    
+    <!-- Personal Experiences -->
+    <ion-item-divider>
+      <ion-label>Personal Experiences</ion-label>
+    </ion-item-divider>
+    
     <ion-item disabled="true">
-      <ion-label>Super Mario World</ion-label>
-
+      <ion-label>333</ion-label>
     </ion-item>
+
+    <ion-item disabled="true">
+      <ion-label>444</ion-label>
+    </ion-item>
+
+    <ion-item disabled="true">
+      <ion-label>555</ion-label>
+    </ion-item>
+
+    <ion-item disabled="true">
+      <ion-label>666</ion-label>
+    </ion-item>
+
+  </ion-item-group>
   </ion-list>
 </ion-content>

@@ -3,6 +3,15 @@
     <ion-title>
       Contacts
     </ion-title>
+    <ion-buttons slot="end">
+      <!-- <ion-toggle (ionChange)="toggleTheme($event)"></ion-toggle> -->
+      <ion-button (click)="changeLanguage('en')">
+        {{'en' | translate }}
+        </ion-button>
+        <ion-button (click)="changeLanguage('pt')">
+        {{'pt' | translate }}
+        </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -47,8 +56,6 @@
     <ion-label>Email input</ion-label>
     <ion-input type="email" placeholder="email@domain.com"></ion-input>
   </ion-item>
-
-  <ion-button (click)="clearList()">Fake Send</ion-button>
 </ion-list>
-
+<ion-button type="reset">Fake Send</ion-button>
 </ion-content>
