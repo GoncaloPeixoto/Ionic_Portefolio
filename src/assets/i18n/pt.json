@@ -1,9 +1,17 @@
 {
+    "t1":"Sobre mim",
+    "t3":"Contactos",
     "l1ph":"Bem vindo",
     "l2ph":"Olha sou eu",
     "q1":"Quem sou eu?",
     "l1home":"Isso é uma boa questão!",
     "l2home":"Como já devem saber eu sou o Gonçalo e estou atualmente a estudar no IPVC-ESTG no curso de DWM.",
-    "l3home":"Se quiserem saber um pouco mais sobre mim e as minhas skills vao até a tab de skills"
+    "l3home":"Se quiserem saber um pouco mais sobre mim e as minhas skills vao até a tab de skills",
+    "c1":"As minhas redes sociais",
+    "c2":"Envia-me uma mensagem",
+    "f1":"Nome",
+    "f2":"Mensagem",
+    "f3":"Email",
+    "b1":"'Enviar'"
     }
     

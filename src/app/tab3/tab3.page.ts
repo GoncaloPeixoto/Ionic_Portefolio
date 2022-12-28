@@ -29,9 +29,18 @@ export class Tab3Page {
         }
   items = ['Item 1', 'Item 2', 'Item 3'];
 
-clearList() {
-  this.items.splice(0, this.items.length);
-}
+  refreshPage() {
+    location.reload();
+  }
+
+  toggleTheme(event:any){
+    console.log(event)
+    if(event.detail.checked){
+      document.body.setAttribute("color-theme","dark");
+    }else {
+      document.body.setAttribute("color-theme","light");
+    }
+  }
 }
 
 

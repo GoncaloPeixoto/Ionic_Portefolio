@@ -2,14 +2,14 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      About Me
+      {{ 't1' | translate}}
     </ion-title>
     <ion-buttons slot="end">
-      <!-- <ion-toggle (ionChange)="toggleTheme($event)"></ion-toggle> -->
-      <ion-button (click)="changeLanguage('en')">
+      <ion-toggle (ionChange)="toggleTheme($event)"></ion-toggle>
+      <ion-button (click)="refreshPage()" (click)="changeLanguage('en')">
         {{'en' | translate }}
         </ion-button>
-        <ion-button (click)="changeLanguage('pt')">
+        <ion-button (click)="refreshPage()" (click)="changeLanguage('pt')">
         {{'pt' | translate }}
         </ion-button>
     </ion-buttons>

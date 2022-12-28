@@ -1,8 +1,16 @@
 {
+    "t1":"About Me",
+    "t3":"Contacts",
     "l1ph":"Welcome",
     "l2ph":"Look Thats Me",
     "q1":"Who am I?",
     "l1home":"Thats a good question!",
     "l2home":"As you already might know my Gonçalo and I'm currunlty studying at IPVC-ESTG where I'm taking the DWM course.",
-    "l3home":"If you want to know a bit more about my peronal skills and achivements head on to the skills tab!"
+    "l3home":"If you want to know a bit more about my peronal skills and achivements head on to the skills tab!",
+    "c1":"My Social Medias",
+    "c2":"Send Me a Message",
+    "f1":"Name",
+    "f2":"Message",
+    "f3":"Email",
+    "b1":"'Send'"
     }

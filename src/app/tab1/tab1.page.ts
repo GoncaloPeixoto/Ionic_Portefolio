@@ -10,6 +10,20 @@ import { ToastController } from '@ionic/angular';
 })
 export class Tab1Page {
 
+  refreshPage() {
+    location.reload();
+  }
+
+
+  toggleTheme(event:any){
+    console.log(event)
+    if(event.detail.checked){
+      document.body.setAttribute("color-theme","dark");
+    }else {
+      document.body.setAttribute("color-theme","light");
+    }
+  }
+
   constructor(
     private translateService : TranslateService,
     private toastController : ToastController)  {}
@@ -28,15 +42,8 @@ export class Tab1Page {
         }
       }
 
-      
-  // toggleTheme(event:any){
-  //   console.log(event)
-  //   if(event.detail.checked){
-  //     document.body.setAttribute("color-theme","dark");
-  //   }else {
-  //     document.body.setAttribute("color-theme","light");
-  //   }
-  // }
+    
+
 
   
 

@@ -33,5 +33,17 @@ export class Tab2Page {
     console.log('Segment changed', event);
   }
 
+  refreshPage() {
+    location.reload();
+  }
+
+  toggleTheme(event:any){
+    console.log(event)
+    if(event.detail.checked){
+      document.body.setAttribute("color-theme","dark");
+    }else {
+      document.body.setAttribute("color-theme","light");
+    }
+  }
 
 }
