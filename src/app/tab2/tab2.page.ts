@@ -1,7 +1,8 @@
 import { Preferences } from '@capacitor/preferences';
 import { TranslateService } from '@ngx-translate/core';
-import { Component } from '@angular/core';
-import { ToastController } from '@ionic/angular';
+import { Component,ViewChild  } from '@angular/core';
+import { ToastController,IonModal } from '@ionic/angular';
+import { OverlayEventDetail } from '@ionic/core/components';
 
 @Component({
   selector: 'app-tab2',
@@ -46,4 +47,14 @@ export class Tab2Page {
     }
   }
 
+
+  @ViewChild(IonModal)
+  modal!: IonModal;
+
+  message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
+
+
+  cancel() {
+    this.modal.dismiss(null, 'cancel');
+  }
 }

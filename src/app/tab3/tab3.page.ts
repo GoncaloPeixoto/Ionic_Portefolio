@@ -13,7 +13,18 @@ export class Tab3Page {
 
   constructor(
     private translateService : TranslateService,
-    private toastController : ToastController)  {}
+    private toastController : ToastController,
+    private toastController2: ToastController)  {}
+
+    async presentToast(position:'bottom') {
+      const toast = await this.toastController2.create({
+        message: 'Message sent',
+        duration: 1500,
+        position: position
+      });
+  
+      await toast.present();
+    }
 
     async changeLanguage(language : string) {
       await Preferences.set({ key: 'user-lang', value: language });
@@ -41,6 +52,7 @@ export class Tab3Page {
       document.body.setAttribute("color-theme","light");
     }
   }
+
 }
 
 
