@@ -12,5 +12,8 @@
     "f1":"Name",
     "f2":"Message",
     "f3":"Email",
-    "b1":"'Send'"
+    "b1":"'Send'",
+    "sk1":"Achived",
+    "sk2":"Wanted",
+    "sk3":"WIP"
     }

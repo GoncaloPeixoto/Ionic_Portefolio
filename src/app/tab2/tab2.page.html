@@ -2,10 +2,13 @@
   <ion-toolbar>
     <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="type">
       <ion-segment-button value="Achived">
-        <ion-label>Achived</ion-label>
+        <ion-label>{{ "sk1" | translate}}</ion-label>
       </ion-segment-button>
       <ion-segment-button value="Wanted">
-        <ion-label>Wanted</ion-label>
+        <ion-label>{{ "sk2" | translate}}</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="WIP">
+        <ion-label>{{ "sk3" | translate}}</ion-label>
       </ion-segment-button>
     </ion-segment>
     <ion-buttons slot="end">
@@ -106,7 +109,7 @@
     </ion-item-divider>
 
     <ion-item disabled="true">
-      <ion-label>Have and advenced knowledge and understanding of Germna </ion-label>
+      <ion-label>Learn German </ion-label>
     </ion-item>
   
     <ion-item disabled="true">
@@ -135,5 +138,35 @@
     </ion-item>
 
   </ion-item-group>
+  </ion-list>
+
+  <ion-list [inset]="true" *ngSwitchCase="'WIP'">
+    <ion-item-group>
+
+<!-- Ongoing Projects -->
+    <ion-item-divider>
+      <ion-label>Ongoing Projects</ion-label>
+    </ion-item-divider>
+
+    <ion-item>
+      <ion-label>CarCTRL </ion-label>
+      <ion-button>Saber Mais</ion-button>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Purple Ticket</ion-label>
+      <ion-button>Saber Mais</ion-button>
+    </ion-item>
+
+<!-- Future Projects -->
+    <ion-item-divider>
+      <ion-label>Future Projects</ion-label>
+    </ion-item-divider>
+
+    <ion-item disabled="true">
+      <ion-label>IDK SMTH</ion-label>
+    </ion-item>
+
+    </ion-item-group>
   </ion-list>
 </ion-content>
