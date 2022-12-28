@@ -12,8 +12,10 @@
     "f1":"Name",
     "f2":"Message",
     "f3":"Email",
-    "b1":"'Send'",
+    "b1":"Send",
+    "toast2":"Message sent",
     "sk1":"Achived",
     "sk2":"Wanted",
-    "sk3":"WIP"
+    "sk3":"WIP",
+    "l3ph":"If you want to buy me a coffe"
     }
