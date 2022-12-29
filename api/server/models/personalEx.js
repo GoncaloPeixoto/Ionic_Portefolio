@@ -18,7 +18,7 @@ const PersonalExModule = dbInstance.define("PersonalEx", {
   isWanted: {
     type: Sequelize.BOOLEAN,
     allowNull: false,
-    default: true,
+    defaultValue: true,
   },
 });
 export { PersonalExModule };

@@ -18,7 +18,7 @@ const ProgrammingModule = dbInstance.define("Programming", {
   isWanted: {
     type: Sequelize.BOOLEAN,
     allowNull: false,
-    default: true,
+    defaultValue: true,
   },
 });
 export { ProgrammingModule };

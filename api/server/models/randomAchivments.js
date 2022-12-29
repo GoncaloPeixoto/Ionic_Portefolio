@@ -18,7 +18,7 @@ const RandomAchivementsModule = dbInstance.define("RandomAchivements", {
   isWanted: {
     type: Sequelize.BOOLEAN,
     allowNull: false,
-    default: true,
+    defaultValue: true,
   },
 });
 export { RandomAchivementsModule };

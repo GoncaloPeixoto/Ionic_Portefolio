@@ -18,7 +18,7 @@ const OtherSkillsModule = dbInstance.define("OtherSkills", {
   isWanted: {
     type: Sequelize.BOOLEAN,
     allowNull: false,
-    default: true,
+    defaultValue: true,
   },
 });
 export { OtherSkillsModule };

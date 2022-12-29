@@ -1,7 +1,7 @@
 import Sequelize from "sequelize";
 import { dbInstance } from "../config/db.js";
 
-const ProjectsModule = dbInstance.define("rojects", {
+const ProjectsModule = dbInstance.define("Projects", {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
@@ -18,7 +18,7 @@ const ProjectsModule = dbInstance.define("rojects", {
   isWanted: {
     type: Sequelize.BOOLEAN,
     allowNull: false,
-    default: true,
+    defaultValue: true,
   },
 });
 export { ProjectsModule };
