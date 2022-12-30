@@ -13,7 +13,7 @@ import { OverlayEventDetail } from '@ionic/core/components';
 export class Tab2Page {
 
   type = "segment value";
-  skillArray = [];
+  skillArray: any = [];
 
   constructor(
     private translateService : TranslateService,
@@ -52,15 +52,15 @@ export class Tab2Page {
     }
   }
 
-  // async loadSkill(){
-  //   const loading = await this.loadingCtrl.create({
-  //     spinner:'dots'});
-  //     await loading.present();
-  //     this.crudService.getSkills("skill").subscribe((res)=>{
-  //       loading.dismiss()
-  //       this.skillArray = [...this.skillArray,...res.skill];
-  //     })
-  // }
+  async loadSkill(){
+    const loading = await this.loadingCtrl.create({
+      spinner:'dots'});
+      await loading.present();
+      this.crudService.getSkills("skill").subscribe((res)=>{
+        loading.dismiss()
+        this.skillArray = [...this.skillArray,...res.skill];
+      })
+  }
 
   @ViewChild(IonModal)
   modal!: IonModal;
