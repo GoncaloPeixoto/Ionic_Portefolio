@@ -52,15 +52,15 @@ export class Tab2Page {
     }
   }
 
-  async loadSkill(){
-    const loading = await this.loadingCtrl.create({
-      spinner:'dots'});
-      await loading.present();
-      this.crudService.getSkills("skill").subscribe((res)=>{
-        loading.dismiss()
-        this.skillArray = [...this.skillArray,...res.skill];
-      })
-  }
+  // async loadSkill(){
+  //   const loading = await this.loadingCtrl.create({
+  //     spinner:'dots'});
+  //     await loading.present();
+  //     this.crudService.getSkills("skill").subscribe((res)=>{
+  //       loading.dismiss()
+  //       this.skillArray = [...this.skillArray,...res.skill];
+  //     })
+  // }
 
   @ViewChild(IonModal)
   modal!: IonModal;
