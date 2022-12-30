@@ -1,7 +1,8 @@
+import { CrudService } from './../services/api/crud.service';
 import { Preferences } from '@capacitor/preferences';
 import { TranslateService } from '@ngx-translate/core';
 import { Component,ViewChild  } from '@angular/core';
-import { ToastController,IonModal } from '@ionic/angular';
+import { ToastController,IonModal, LoadingController } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 
 @Component({
@@ -12,10 +13,14 @@ import { OverlayEventDetail } from '@ionic/core/components';
 export class Tab2Page {
 
   type = "segment value";
+  skillArray: any = [];
 
   constructor(
     private translateService : TranslateService,
-    private toastController : ToastController)  {}
+    private toastController : ToastController,
+    private loadingCtrl : LoadingController,
+    private crudService : CrudService)  {}
+
 
     async changeLanguage(language : string) {
       await Preferences.set({ key: 'user-lang', value: language });
@@ -47,6 +52,15 @@ export class Tab2Page {
     }
   }
 
+  async loadSkill(){
+    const loading = await this.loadingCtrl.create({
+      spinner:'dots'});
+      await loading.present();
+      this.crudService.getSkills("skill").subscribe((res)=>{
+        loading.dismiss()
+        this.skillArray = [...this.skillArray,...res.skill];
+      })
+  }
 
   @ViewChild(IonModal)
   modal!: IonModal;
