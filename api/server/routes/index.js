@@ -63,11 +63,11 @@ routes.get("/newSkill", newSkill);
 routes.get("/updateSkill/:id", updateSkill);
 routes.get("/deleteSkill/:id", deleteSkill);
 
-routes.get("/RSkill", getRandomAchivements);
-routes.get("/RSkill/:id", getRandomAchivementsId);
-routes.get("/newRSkill", newRandomAchivements);
-routes.get("/updateRSkill/:id", updateRandomAchivements);
-routes.get("/deleteRSkill/:id", deleteRandomAchivements);
+routes.get("/RA", getRandomAchivements);
+routes.get("/RA/:id", getRandomAchivementsId);
+routes.get("/newRA", newRandomAchivements);
+routes.get("/updateRA/:id", updateRandomAchivements);
+routes.get("/deleteRA/:id", deleteRandomAchivements);
 
 routes.get("/Project", getALLProjects);
 routes.get("/Project/:id", getProjectsid);
@@ -75,7 +75,7 @@ routes.get("/newProject", newProjects);
 routes.get("/updateProject/:id", updateProjects);
 routes.get("/deleteProject/:id", deleteProjects);
 
-routes.get("/PSkill", getALLProgrammingSkill);
+routes.get("/PS", getALLProgrammingSkill);
 routes.get("/PSkill/:id", getProgrammingSkillId);
 routes.get("/newPSkill", newProgrammingSkill);
 routes.get("/updatePSkill/:id", updateProgrammingSkill);
@@ -87,7 +87,7 @@ routes.get("/newPex", newPersonalEx);
 routes.get("/updatePex/:id", updatePersonalEx);
 routes.get("/deletePex/:id", deletePersonalEx);
 
-routes.get("/OSkill", getALLOtherSkills);
+routes.get("/Oskills", getALLOtherSkills);
 routes.get("/OSkill/:id", getOtherSkillsid);
 routes.get("/newOSkill", newOtherSkills);
 routes.get("/updateOSkill/:id", updateOtherSkills);

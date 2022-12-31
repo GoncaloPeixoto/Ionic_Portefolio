@@ -14,6 +14,10 @@ export class Tab2Page {
 
   type = "segment value";
   skillArray: any = [];
+  PexArray: any = [];
+  PSArray: any = [];
+  OskillsArray: any = [];
+  RAArray: any = [];
 
   constructor(
     private translateService : TranslateService,
@@ -59,14 +63,58 @@ export class Tab2Page {
       this.crudService.getSkills("skill").subscribe((res)=>{
         loading.dismiss()
         this.skillArray = [...this.skillArray,...res.skill];
+        console.log(res);
       })
   }
 
+  async loadPex(){
+    const loading = await this.loadingCtrl.create({
+      spinner:'dots'});
+      await loading.present();
+      this.crudService.getPex("Pex").subscribe((res)=>{
+        loading.dismiss()
+        this.PexArray = [...this.PexArray,...res.Pex];
+        console.log(res);
+      })
+  }
+
+  async loadPS(){
+    const loading = await this.loadingCtrl.create({
+      spinner:'dots'});
+      await loading.present();
+      this.crudService.getPS("PS").subscribe((res)=>{
+        loading.dismiss()
+        this.PSArray = [...this.PSArray,...res.PS];
+        console.log(res);
+      })
+  }
+  async loadOskills(){
+    const loading = await this.loadingCtrl.create({
+      spinner:'dots'});
+      await loading.present();
+      this.crudService.getOskills("Oskills").subscribe((res)=>{
+        loading.dismiss()
+        this.OskillsArray = [...this.OskillsArray,...res.Oskills];
+        console.log(res);
+      })
+  }
+
+  async loadRA(){
+    const loading = await this.loadingCtrl.create({
+      spinner:'dots'});
+      await loading.present();
+      this.crudService.getRA("RA").subscribe((res)=>{
+        loading.dismiss()
+        this.RAArray = [...this.RAArray,...res.RA];
+        console.log(res);
+      })
+  }
+
+  ngOnInit() {this.loadSkill(),this.loadPex(),this.loadPS(),this.loadOskills(),this.loadRA()}
+  
+
   @ViewChild(IonModal)
   modal!: IonModal;
-
-  message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
-
 
   cancel() {
     this.modal.dismiss(null, 'cancel');

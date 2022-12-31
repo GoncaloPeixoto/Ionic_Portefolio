@@ -2,7 +2,7 @@ import { ProgrammingModule } from "../models/programmingSkill.js";
 
 export const getALLProgrammingSkill = async (req, res) => {
   const PS = await ProgrammingModule.findAll();
-  return res.send({ skill });
+  return res.send({ PS });
 };
 
 export const getProgrammingSkillId = async (req, res) => {

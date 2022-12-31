@@ -30,12 +30,12 @@
       <ion-item-divider>
         <ion-label>Academic Achivements/Skills</ion-label>
       </ion-item-divider>
-    <ion-item>
-      <ion-label>Certificate in English (C1 Advanced)</ion-label>
+    <ion-item *ngFor="let item of skillArray">
+      <ion-label>{{item.title}}</ion-label>
       <ion-button id="open-modal1" expand="block" >Saber Mais</ion-button>
     </ion-item>
 
-    <ion-modal trigger="open-modal1">
+    <!-- <ion-modal trigger="open-modal1">
       <ng-template>
         <ion-header>
           <ion-toolbar>
@@ -50,12 +50,6 @@
       </ng-template>
     </ion-modal>
 
-
-    <ion-item >
-      <ion-label>Finished 12º Grade</ion-label>
-      <ion-button id="open-modal2" expand="block">Saber Mais</ion-button>
-    </ion-item>
-
     <ion-modal trigger="open-modal2">
       <ng-template>
         <ion-header>
@@ -69,66 +63,36 @@
         <ion-content class="ion-padding">
         </ion-content>
       </ng-template>
-    </ion-modal>
+    </ion-modal> -->
 
     <!-- Personal Experiences -->
     <ion-item-divider>
       <ion-label>Personal Experiences</ion-label>
     </ion-item-divider>
-    <ion-item >
-      <ion-label>4+ Years in customer service at restaurant</ion-label>
+    <ion-item *ngFor="let item of PexArray" >
+      <ion-label>{{item.title}}</ion-label>
       <ion-button>Saber Mais</ion-button>
     </ion-item>
     <!-- Programming skills -->
     <ion-item-divider>
       <ion-label>Programming skills</ion-label>
     </ion-item-divider>
-    <ion-item >
-      <ion-label>HTML</ion-label>
-    </ion-item>
-    <ion-item >
-      <ion-label>CSS</ion-label>
-    </ion-item>
-    <ion-item >
-      <ion-label>JavaScript</ion-label>
-    </ion-item>
-    <ion-item >
-      <ion-label>React</ion-label>
-    </ion-item>
-    <ion-item >
-      <ion-label>Ionic</ion-label>
-    </ion-item>
-    <ion-item >
-      <ion-label>SQL</ion-label>
+    <ion-item *ngFor="let item of PSArray">
+      <ion-label>{{item.title}}</ion-label>
     </ion-item>
     <!-- Other skills -->
     <ion-item-divider>
       <ion-label>Other skills</ion-label>
     </ion-item-divider>
-    <ion-item >
-      <ion-label>Photo editing with Photoshop</ion-label>
-    </ion-item>
-    <ion-item >
-      <ion-label>Creation of vector with Adobe Ilustrator</ion-label>
-    </ion-item>
-    <ion-item >
-      <ion-label>Video editing with Adobe Premiere/After Efects</ion-label>
-    </ion-item>
-    <ion-item >
-      <ion-label>3D Model creation/animation with AutoDesk Maya</ion-label>
+    <ion-item *ngFor="let item of OskillsArray">
+      <ion-label>{{item.title}}</ion-label>
     </ion-item>
      <!-- Random achievements -->
      <ion-item-divider>
       <ion-label>Random achievements</ion-label>
     </ion-item-divider>
-    <ion-item >
-      <ion-label>I'm taking part at my local Scouts</ion-label>
-    </ion-item>
-    <ion-item >
-      <ion-label>I do 3d printing as a hobby</ion-label>
-    </ion-item>
-    <ion-item >
-      <ion-label>I do photography and video editing as a hobby</ion-label>
+    <ion-item *ngFor="let item of RAArray">
+      <ion-label>{{item.title}}</ion-label>
     </ion-item>
   </ion-item-group>
   </ion-list>

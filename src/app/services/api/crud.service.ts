@@ -11,6 +11,39 @@ export interface Skill {
   isWanted: boolean,];
 }
 
+export interface Pex {
+  Pex:[
+  id: number,
+  title: string,
+  description: string,
+  isWanted: boolean,];
+}
+
+export interface PS {
+  PS:[
+  id: number,
+  title: string,
+  description: string,
+  isWanted: boolean,];
+}
+
+export interface Oskills {
+  Oskills:[
+  id: number,
+  title: string,
+  description: string,
+  isWanted: boolean,];
+}
+
+export interface RA {
+  RA:[
+  id: number,
+  title: string,
+  description: string,
+  isWanted: boolean,];
+}
+
+
 export interface RootObject {
   
 }
@@ -25,7 +58,22 @@ export class CrudService {
   getSkills(controller : string): Observable<Skill> {
   return this.http.get<Skill>(`${this.url}/api/${controller}`);
   }
+
+  getPex(controller : string): Observable<Pex> {
+    return this.http.get<Pex>(`${this.url}/api/${controller}`);
+  }
   
+  getPS(controller : string): Observable<PS> {
+    return this.http.get<PS>(`${this.url}/api/${controller}`);
+  }
+
+  getOskills(controller : string): Observable<Oskills> {
+    return this.http.get<Oskills>(`${this.url}/api/${controller}`);
+  }
+
+  getRA(controller : string): Observable<RA> {
+    return this.http.get<RA>(`${this.url}/api/${controller}`);
+  }
   // getById(controller : string, id : string) {
   // return this.http.get(`${this.url}/api/${controller}/${id}`);
   // }
