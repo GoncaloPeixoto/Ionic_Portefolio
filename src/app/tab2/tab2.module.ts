@@ -1,3 +1,4 @@
+import { AcademicSkillsModalComponent } from './../modal/academic-skills-modal/academic-skills-modal.component';
 import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -18,6 +19,9 @@ import { TranslateModule } from '@ngx-translate/core';
     Tab2PageRoutingModule,
     TranslateModule,
   ],
-  declarations: [Tab2Page]
+  declarations: [Tab2Page,AcademicSkillsModalComponent],
+  entryComponents:[
+    AcademicSkillsModalComponent,
+  ]
 })
 export class Tab2PageModule {}
