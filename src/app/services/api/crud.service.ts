@@ -97,6 +97,11 @@ export class CrudService {
   getFutureProjects(controller : string): Observable<FP> {
   return this.http.get<FP>(`${this.url}/api/${controller}`);
   }
+
+  // createSkill(controller : string, Skill : any) {
+  //   return this.http.post(`${this.url}/api/${controller}/create`, Skill);
+  //   }
+
   // getById(controller : string, id : string) {
   // return this.http.get(`${this.url}/api/${controller}/${id}`);
   // }
