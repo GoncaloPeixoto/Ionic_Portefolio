@@ -62,9 +62,9 @@ const routes = Router();
 routes.get("/skill", getALLSkill);
 routes.get("/skillWanted", getALLSkillWanted);
 routes.get("/skill/:id", getSkillid);
-routes.get("/newSkill", newSkill);
-routes.get("/updateSkill/:id", updateSkill);
-routes.get("/deleteSkill/:id", deleteSkill);
+routes.post("/newSkill", newSkill);
+routes.post("/updateSkill/:id", updateSkill);
+routes.delete("/deleteSkill/:id", deleteSkill);
 
 routes.get("/RA", getRandomAchivements);
 routes.get("/RA/:id", getRandomAchivementsId);
