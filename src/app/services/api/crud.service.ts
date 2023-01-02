@@ -102,6 +102,13 @@ export class CrudService {
   //   return this.http.post(`${this.url}/api/${controller}/create`, Skill);
   //   }
 
+
+    // createSkill(Skill: Skill): Observable<any> {
+    //   return this.HttpClient.post<Skill>(this.endpoint, JSON.stringify(user), this.httpOptions)
+    //     .pipe(
+    //       catchError(this.handleError<User>('Error occured'))
+    //     );
+    // }
   // getById(controller : string, id : string) {
   // return this.http.get(`${this.url}/api/${controller}/${id}`);
   // }

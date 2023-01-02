@@ -201,6 +201,8 @@ export class Tab2Page {
     });
     await modalProjects.present();
   }
+
+
   
   ngOnInit() {this.loadSkill(),
     this.loadPex(),
