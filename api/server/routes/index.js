@@ -5,6 +5,7 @@ import {
   newSkill,
   updateSkill,
   deleteSkill,
+  getALLSkillWanted,
 } from "../controllers/skills.js";
 
 import {
@@ -33,6 +34,7 @@ import {
 
 import {
   getALLPersonalEx,
+  getALLPersonalExWanted,
   getPersonalExid,
   newPersonalEx,
   updatePersonalEx,
@@ -58,6 +60,7 @@ import {
 const routes = Router();
 
 routes.get("/skill", getALLSkill);
+routes.get("/skillWanted", getALLSkillWanted);
 routes.get("/skill/:id", getSkillid);
 routes.get("/newSkill", newSkill);
 routes.get("/updateSkill/:id", updateSkill);
@@ -69,7 +72,7 @@ routes.get("/newRA", newRandomAchivements);
 routes.get("/updateRA/:id", updateRandomAchivements);
 routes.get("/deleteRA/:id", deleteRandomAchivements);
 
-routes.get("/Project", getALLProjects);
+routes.get("/Projects", getALLProjects);
 routes.get("/Project/:id", getProjectsid);
 routes.get("/newProject", newProjects);
 routes.get("/updateProject/:id", updateProjects);
@@ -82,6 +85,7 @@ routes.get("/updatePSkill/:id", updateProgrammingSkill);
 routes.get("/deletePSkill/:id", deleteProgrammingSkill);
 
 routes.get("/Pex", getALLPersonalEx);
+routes.get("/PexWanted", getALLPersonalExWanted);
 routes.get("/Pex/:id", getPersonalExid);
 routes.get("/newPex", newPersonalEx);
 routes.get("/updatePex/:id", updatePersonalEx);
@@ -93,7 +97,7 @@ routes.get("/newOSkill", newOtherSkills);
 routes.get("/updateOSkill/:id", updateOtherSkills);
 routes.get("/deleteOSkill/:id", deleteOtherSkills);
 
-routes.get("/FutureSkill", getALLFutureProjects);
+routes.get("/FP", getALLFutureProjects);
 routes.get("/Futureskill/:id", getFutureProjectsid);
 routes.get("/newFutureSkill", newFutureProjects);
 routes.get("/updateFutureSkill/:id", updateFutureProjects);

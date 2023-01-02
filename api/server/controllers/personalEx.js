@@ -1,7 +1,8 @@
+import { where } from "sequelize";
 import { PersonalExModule } from "../models/personalEx.js";
 
 export const getALLPersonalEx = async (req, res) => {
-  const Pex = await PersonalExModule.findAll();
+  const Pex = await PersonalExModule.findAll({ where: { isWanted: 0 } });
   return res.send({ Pex });
 };
 
@@ -49,4 +50,9 @@ export const deletePersonalEx = async (req, res) => {
   } else {
     return res.send("Não existe Personal Experiences com id: " + id);
   }
+};
+
+export const getALLPersonalExWanted = async (req, res) => {
+  const Pex = await PersonalExModule.findAll({ where: { isWanted: 1 } });
+  return res.send({ Pex });
 };

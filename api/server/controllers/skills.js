@@ -1,7 +1,12 @@
 import { SkillModule } from "../models/skill.js";
 
 export const getALLSkill = async (req, res) => {
-  const skill = await SkillModule.findAll();
+  const skill = await SkillModule.findAll({ where: { isWanted: 0 } });
+  return res.send({ skill });
+};
+
+export const getALLSkillWanted = async (req, res) => {
+  const skill = await SkillModule.findAll({ where: { isWanted: 1 } });
   return res.send({ skill });
 };
 

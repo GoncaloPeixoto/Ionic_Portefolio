@@ -12,12 +12,17 @@ import { OverlayEventDetail } from '@ionic/core/components';
 })
 export class Tab2Page {
 
-  type = "segment value";
+  type = "Achived";
   skillArray: any = [];
+  skillWantedArray: any = [];
   PexArray: any = [];
+  PexWantedArray: any = [];
   PSArray: any = [];
   OskillsArray: any = [];
   RAArray: any = [];
+  ProjectsArray: any = [];
+  FutureProjectsArray: any = [];
+
 
   constructor(
     private translateService : TranslateService,
@@ -67,6 +72,17 @@ export class Tab2Page {
       })
   }
 
+  async loadSkillWanted(){
+    const loading = await this.loadingCtrl.create({
+      spinner:'dots'});
+      await loading.present();
+      this.crudService.getSkills("skillWanted").subscribe((res)=>{
+        loading.dismiss()
+        this.skillWantedArray = [...this.skillWantedArray,...res.skill];
+        console.log(res);
+      })
+  }
+
   async loadPex(){
     const loading = await this.loadingCtrl.create({
       spinner:'dots'});
@@ -74,6 +90,17 @@ export class Tab2Page {
       this.crudService.getPex("Pex").subscribe((res)=>{
         loading.dismiss()
         this.PexArray = [...this.PexArray,...res.Pex];
+        console.log(res);
+      })
+  }
+
+  async loadPexWanted(){
+    const loading = await this.loadingCtrl.create({
+      spinner:'dots'});
+      await loading.present();
+      this.crudService.getPex("PexWanted").subscribe((res)=>{
+        loading.dismiss()
+        this.PexWantedArray = [...this.PexWantedArray,...res.Pex];
         console.log(res);
       })
   }
@@ -110,7 +137,37 @@ export class Tab2Page {
       })
   }
 
-  ngOnInit() {this.loadSkill(),this.loadPex(),this.loadPS(),this.loadOskills(),this.loadRA()}
+  async loadProjects(){
+    const loading = await this.loadingCtrl.create({
+      spinner:'dots'});
+      await loading.present();
+      this.crudService.getProjects("Projects").subscribe((res)=>{
+        loading.dismiss()
+        this.ProjectsArray = [...this.ProjectsArray,...res.Projects];
+        console.log(res);
+      })
+  }
+
+  async loadFutureProjects(){
+    const loading = await this.loadingCtrl.create({
+      spinner:'dots'});
+      await loading.present();
+      this.crudService.getFutureProjects("FP").subscribe((res)=>{
+        loading.dismiss()
+        this.FutureProjectsArray = [...this.FutureProjectsArray,...res.FP];
+        console.log(res);
+      })
+  }
+
+  ngOnInit() {this.loadSkill(),
+    this.loadPex(),
+    this.loadPS(),
+    this.loadOskills(),
+    this.loadRA(),
+    this.loadSkillWanted(),
+    this.loadPexWanted(),
+    this.loadProjects(),
+    this.loadFutureProjects()}
   
 
   @ViewChild(IonModal)

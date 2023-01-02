@@ -43,6 +43,21 @@ export interface RA {
   isWanted: boolean,];
 }
 
+export interface Projects {
+  Projects:[
+  id: number,
+  title: string,
+  description: string,
+  isWanted: boolean,];
+}
+
+export interface FP {
+  FP:[
+  id: number,
+  title: string,
+  description: string,
+  isWanted: boolean,];
+}
 
 export interface RootObject {
   
@@ -73,6 +88,14 @@ export class CrudService {
 
   getRA(controller : string): Observable<RA> {
     return this.http.get<RA>(`${this.url}/api/${controller}`);
+  }
+
+  getProjects(controller : string): Observable<Projects> {
+    return this.http.get<Projects>(`${this.url}/api/${controller}`);
+    }
+
+  getFutureProjects(controller : string): Observable<FP> {
+  return this.http.get<FP>(`${this.url}/api/${controller}`);
   }
   // getById(controller : string, id : string) {
   // return this.http.get(`${this.url}/api/${controller}/${id}`);

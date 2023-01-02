@@ -97,6 +97,9 @@
   </ion-item-group>
   </ion-list>
 
+
+                    <!-- Wanted -->
+
     <ion-list [inset]="true" *ngSwitchCase="'Wanted'">
       <ion-item-group>
 
@@ -105,37 +108,23 @@
       <ion-label>Academic Achivements/Skills</ion-label>
     </ion-item-divider>
 
-    <ion-item disabled="true">
-      <ion-label>Learn German </ion-label>
+    <ion-item *ngFor="let item of skillWantedArray" disabled="true">
+      <ion-label>{{item.title}}</ion-label>
     </ion-item>
   
-    <ion-item disabled="true">
-      <ion-label>222</ion-label>
-    </ion-item>
-    
     <!-- Personal Experiences -->
     <ion-item-divider>
       <ion-label>Personal Experiences</ion-label>
     </ion-item-divider>
     
-    <ion-item disabled="true">
-      <ion-label>333</ion-label>
-    </ion-item>
-
-    <ion-item disabled="true">
-      <ion-label>444</ion-label>
-    </ion-item>
-
-    <ion-item disabled="true">
-      <ion-label>555</ion-label>
-    </ion-item>
-
-    <ion-item disabled="true">
-      <ion-label>666</ion-label>
+    <ion-item *ngFor="let item of PexWantedArray" disabled="true">
+      <ion-label>{{item.title}}</ion-label>
     </ion-item>
 
   </ion-item-group>
   </ion-list>
+
+            <!-- Work In progress -->
 
   <ion-list [inset]="true" *ngSwitchCase="'WIP'">
     <ion-item-group>
@@ -145,25 +134,18 @@
       <ion-label>Ongoing Projects</ion-label>
     </ion-item-divider>
 
-    <ion-item>
-      <ion-label>CarCTRL </ion-label>
+    <ion-item *ngFor="let item of ProjectsArray">
+      <ion-label>{{item.title}}</ion-label>
       <ion-button>Saber Mais</ion-button>
     </ion-item>
-  
-    <ion-item>
-      <ion-label>Purple Ticket</ion-label>
-      <ion-button>Saber Mais</ion-button>
-    </ion-item>
-
 <!-- Future Projects -->
     <ion-item-divider>
       <ion-label>Future Projects</ion-label>
     </ion-item-divider>
 
-    <ion-item disabled="true">
-      <ion-label>IDK SMTH</ion-label>
+    <ion-item *ngFor="let item of FutureProjectsArray" disabled="true">
+      <ion-label>{{item.title}}</ion-label>
     </ion-item>
-
     </ion-item-group>
   </ion-list>
 </ion-content>
