@@ -1,3 +1,17 @@
-<p>
-  personal-ex-modal works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismissModal()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title>{{title}}</ion-title>
+    <ion-buttons slot="end">
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card class="ion-padding">
+  <ion-text position="stacked">
+    <h2>{{description}}</h2>
+  </ion-text>
+</ion-card>
+</ion-content>

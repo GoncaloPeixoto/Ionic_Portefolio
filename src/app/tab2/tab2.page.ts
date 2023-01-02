@@ -1,3 +1,5 @@
+import { ProjectsModalComponent } from './../modal/projects-modal/projects-modal.component';
+import { PersonalExModalComponent } from './../modal/personal-ex-modal/personal-ex-modal.component';
 import { AcademicSkillsModalComponent } from './../modal/academic-skills-modal/academic-skills-modal.component';
 import { CrudService } from './../services/api/crud.service';
 import { Preferences } from '@capacitor/preferences';
@@ -165,6 +167,32 @@ export class Tab2Page {
     console.log(item);
     const modalProjects = await this.modalCtrl.create({
       component: AcademicSkillsModalComponent,
+      componentProps: {
+        id: item.id,
+        title: item.title,
+        description: item.description,
+      },
+    });
+    await modalProjects.present();
+  }
+
+  async openModalPex(item:any) {
+    console.log(item);
+    const modalProjects = await this.modalCtrl.create({
+      component: PersonalExModalComponent,
+      componentProps: {
+        id: item.id,
+        title: item.title,
+        description: item.description,
+      },
+    });
+    await modalProjects.present();
+  }
+
+  async openModalProj(item:any) {
+    console.log(item);
+    const modalProjects = await this.modalCtrl.create({
+      component: ProjectsModalComponent,
       componentProps: {
         id: item.id,
         title: item.title,

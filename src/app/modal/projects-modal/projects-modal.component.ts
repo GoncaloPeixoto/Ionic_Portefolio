@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-projects-modal',
@@ -7,8 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectsModalComponent implements OnInit {
 
-  constructor() { }
+  id: any;
+  title: any;
+  description: any;
+  constructor(private modalCtrl: ModalController) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.title;
+    this.description;
+  }
 
+  dismissModal() {
+    this.modalCtrl.dismiss();
+  }
 }

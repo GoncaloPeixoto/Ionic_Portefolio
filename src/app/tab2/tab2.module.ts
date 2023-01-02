@@ -1,3 +1,5 @@
+import { ProjectsModalComponent } from './../modal/projects-modal/projects-modal.component';
+import { PersonalExModalComponent } from './../modal/personal-ex-modal/personal-ex-modal.component';
 import { AcademicSkillsModalComponent } from './../modal/academic-skills-modal/academic-skills-modal.component';
 import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
@@ -19,9 +21,11 @@ import { TranslateModule } from '@ngx-translate/core';
     Tab2PageRoutingModule,
     TranslateModule,
   ],
-  declarations: [Tab2Page,AcademicSkillsModalComponent],
+  declarations: [Tab2Page,AcademicSkillsModalComponent,PersonalExModalComponent,ProjectsModalComponent],
   entryComponents:[
     AcademicSkillsModalComponent,
+    PersonalExModalComponent,
+    ProjectsModalComponent,
   ]
 })
 export class Tab2PageModule {}

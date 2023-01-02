@@ -41,7 +41,7 @@
     </ion-item-divider>
     <ion-item *ngFor="let item of PexArray" >
       <ion-label>{{item.title}}</ion-label>
-      <ion-button>See More</ion-button>
+      <ion-button (click)="openModalPex(item)">See More</ion-button>
     </ion-item>
     <!-- Programming skills -->
     <ion-item-divider>
@@ -106,7 +106,7 @@
 
     <ion-item *ngFor="let item of ProjectsArray">
       <ion-label>{{item.title}}</ion-label>
-      <ion-button>See More</ion-button>
+      <ion-button (click)="openModalProj(item)">See More</ion-button>
     </ion-item>
 <!-- Future Projects -->
     <ion-item-divider>
