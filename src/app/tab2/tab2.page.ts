@@ -1,8 +1,9 @@
+import { AcademicSkillsModalComponent } from './../modal/academic-skills-modal/academic-skills-modal.component';
 import { CrudService } from './../services/api/crud.service';
 import { Preferences } from '@capacitor/preferences';
 import { TranslateService } from '@ngx-translate/core';
 import { Component,ViewChild  } from '@angular/core';
-import { ToastController,IonModal, LoadingController } from '@ionic/angular';
+import { ToastController,IonModal, LoadingController, ModalController } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 
 @Component({
@@ -28,7 +29,8 @@ export class Tab2Page {
     private translateService : TranslateService,
     private toastController : ToastController,
     private loadingCtrl : LoadingController,
-    private crudService : CrudService)  {}
+    private crudService : CrudService,
+    private modalCtrl: ModalController)  {}
 
 
     async changeLanguage(language : string) {
@@ -159,6 +161,19 @@ export class Tab2Page {
       })
   }
 
+  async openModalSkills(item:any) {
+    console.log(item);
+    const modalProjects = await this.modalCtrl.create({
+      component: AcademicSkillsModalComponent,
+      componentProps: {
+        id: item.id,
+        title: item.title,
+        description: item.description,
+      },
+    });
+    await modalProjects.present();
+  }
+  
   ngOnInit() {this.loadSkill(),
     this.loadPex(),
     this.loadPS(),
@@ -174,6 +189,6 @@ export class Tab2Page {
   modal!: IonModal;
 
   cancel() {
-    this.modal.dismiss(null, 'cancel');
+    this.modal.dismiss();
   }
 }
