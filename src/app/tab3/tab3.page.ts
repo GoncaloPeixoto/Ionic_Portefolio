@@ -18,8 +18,8 @@ export class Tab3Page {
 
     async presentToast(position:'bottom') {
       const toast = await this.toastController2.create({
-        message: 'Message sent',
-        duration: 1500,
+        message: "I'm going to be honest this does not work",
+        duration: 2500,
         position: position
       });
   
