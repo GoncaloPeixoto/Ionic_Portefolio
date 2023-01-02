@@ -1,7 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { ProjectsModalComponent } from './../modal/projects-modal/projects-modal.component';
 import { PersonalExModalComponent } from './../modal/personal-ex-modal/personal-ex-modal.component';
 import { AcademicSkillsModalComponent } from './../modal/academic-skills-modal/academic-skills-modal.component';
-import { CrudService } from './../services/api/crud.service';
+import { CrudService, Skill } from './../services/api/crud.service';
 import { Preferences } from '@capacitor/preferences';
 import { TranslateService } from '@ngx-translate/core';
 import { Component,ViewChild  } from '@angular/core';
@@ -25,7 +26,6 @@ export class Tab2Page {
   RAArray: any = [];
   ProjectsArray: any = [];
   FutureProjectsArray: any = [];
-
 
   constructor(
     private translateService : TranslateService,
@@ -212,7 +212,6 @@ export class Tab2Page {
     this.loadProjects(),
     this.loadFutureProjects()}
   
-
   @ViewChild(IonModal)
   modal!: IonModal;
 
