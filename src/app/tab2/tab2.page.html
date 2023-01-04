@@ -31,6 +31,7 @@
         <ion-label>Academic Achivements/Skills</ion-label>
       </ion-item-divider>
     <ion-item *ngFor="let item of skillArray">
+      <ion-badge size="small" slot="start">Id:{{item.id}}</ion-badge>
       <ion-label>{{item.title}}</ion-label>
       <ion-button (click)="openModalSkills(item)">See More</ion-button>
     </ion-item>
@@ -40,6 +41,7 @@
       <ion-label>Personal Experiences</ion-label>
     </ion-item-divider>
     <ion-item *ngFor="let item of PexArray" >
+      <ion-badge size="small" slot="start">Id:{{item.id}}</ion-badge>
       <ion-label>{{item.title}}</ion-label>
       <ion-button (click)="openModalPex(item)">See More</ion-button>
     </ion-item>
@@ -48,6 +50,7 @@
       <ion-label>Programming skills</ion-label>
     </ion-item-divider>
     <ion-item *ngFor="let item of PSArray">
+      <ion-badge size="small" slot="start">Id:{{item.id}}</ion-badge>
       <ion-label>{{item.title}}</ion-label>
     </ion-item>
     <!-- Other skills -->
@@ -55,6 +58,7 @@
       <ion-label>Other skills</ion-label>
     </ion-item-divider>
     <ion-item *ngFor="let item of OskillsArray">
+      <ion-badge size="small" slot="start">Id:{{item.id}}</ion-badge>
       <ion-label>{{item.title}}</ion-label>
     </ion-item>
      <!-- Random achievements -->
@@ -62,6 +66,7 @@
       <ion-label>Random achievements</ion-label>
     </ion-item-divider>
     <ion-item *ngFor="let item of RAArray">
+      <ion-badge size="small" slot="start">Id:{{item.id}}</ion-badge>
       <ion-label>{{item.title}}</ion-label>
     </ion-item>
   </ion-item-group>
@@ -79,6 +84,7 @@
     </ion-item-divider>
 
     <ion-item *ngFor="let item of skillWantedArray" disabled="true">
+      <ion-badge size="small" slot="start">Id:{{item.id}}</ion-badge>
       <ion-label>{{item.title}}</ion-label>
     </ion-item>
   
@@ -88,6 +94,7 @@
     </ion-item-divider>
     
     <ion-item *ngFor="let item of PexWantedArray" disabled="true">
+      <ion-badge size="small" slot="start">Id:{{item.id}}</ion-badge>
       <ion-label>{{item.title}}</ion-label>
     </ion-item>
 
@@ -105,6 +112,7 @@
     </ion-item-divider>
 
     <ion-item *ngFor="let item of ProjectsArray">
+      <ion-badge size="small" slot="start">Id:{{item.id}}</ion-badge>
       <ion-label>{{item.title}}</ion-label>
       <ion-button (click)="openModalProj(item)">See More</ion-button>
     </ion-item>
@@ -114,9 +122,28 @@
     </ion-item-divider>
 
     <ion-item *ngFor="let item of FutureProjectsArray" disabled="true">
+      <ion-badge size="small" slot="start">Id:{{item.id}}</ion-badge>
       <ion-label>{{item.title}}</ion-label>
     </ion-item>
     </ion-item-group>
   </ion-list>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end" >
+    <ion-fab-button size="small">
+      <ion-icon name="chevron-up-circle"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button size="small" (click)="openModalCreate()">
+        <ion-icon name="add-circle" ></ion-icon >
+      </ion-fab-button>
+      <ion-fab-button size="small" (click)="openModalDelete()">
+        <ion-icon name="trash-bin"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button size="small" (click)="openModalUpdate()">
+        <ion-icon name="swap-horizontal"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+  
 </ion-content>
 

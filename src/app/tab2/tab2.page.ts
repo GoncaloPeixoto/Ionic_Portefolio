@@ -1,8 +1,11 @@
+import { UpdateModalComponent } from './../modal/update-modal/update-modal.component';
+import { RemoveModalComponent } from './../modal/remove-modal/remove-modal.component';
 import { HttpClient } from '@angular/common/http';
 import { ProjectsModalComponent } from './../modal/projects-modal/projects-modal.component';
 import { PersonalExModalComponent } from './../modal/personal-ex-modal/personal-ex-modal.component';
 import { AcademicSkillsModalComponent } from './../modal/academic-skills-modal/academic-skills-modal.component';
 import { CrudService, Skill } from './../services/api/crud.service';
+import {CreateModalComponent} from './../modal/create-modal/create-modal.component';
 import { Preferences } from '@capacitor/preferences';
 import { TranslateService } from '@ngx-translate/core';
 import { Component,ViewChild  } from '@angular/core';
@@ -202,8 +205,33 @@ export class Tab2Page {
     await modalProjects.present();
   }
 
+  async openModalCreate() {
+    console.log();
+    const modalProjects = await this.modalCtrl.create({
+      component: CreateModalComponent,
 
-  
+    });
+    await modalProjects.present();
+  }
+
+  async openModalDelete() {
+    console.log();
+    const modalProjects = await this.modalCtrl.create({
+      component: RemoveModalComponent,
+
+    });
+    await modalProjects.present();
+  }
+
+  async openModalUpdate() {
+    console.log();
+    const modalProjects = await this.modalCtrl.create({
+      component: UpdateModalComponent,
+
+    });
+    await modalProjects.present();
+  }
+
   ngOnInit() {this.loadSkill(),
     this.loadPex(),
     this.loadPS(),

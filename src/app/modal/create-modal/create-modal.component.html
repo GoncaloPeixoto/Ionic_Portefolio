@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismissModal()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title>Add a Skill</ion-title>
+    <ion-buttons slot="end">
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="ion-padding-end">
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Input Title</ion-label>
+        <ion-input placeholder="Enter Title" required="true" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Input Description</ion-label>
+        <ion-input placeholder="Enter Description" required="true" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-label>Select the Is wanted Status</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-list>
+      <ion-item>
+        <ion-select interface="action-sheet" placeholder="Select the Type" expand="block">
+          <ion-select-option value="1">Academic Achivements</ion-select-option>
+          <ion-select-option value="2">Personal Experiences</ion-select-option>
+          <ion-select-option value="3">Programming Skills</ion-select-option>
+          <ion-select-option value="4">Other Skills</ion-select-option>
+          <ion-select-option value="5">Random Achivements</ion-select-option>
+          <ion-select-option value="6">Ongoing Projects</ion-select-option>
+          <ion-select-option value="7">Future Projects</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-button expand="block">Submit</ion-button>
+
+</ion-content>

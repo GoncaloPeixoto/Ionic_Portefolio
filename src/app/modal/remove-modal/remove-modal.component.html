@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismissModal()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title>Remove a Skill</ion-title>
+    <ion-buttons slot="end">
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="ion-padding-end">
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Input Id</ion-label>
+        <ion-input placeholder="Enter ID" required="true" type="number" ></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-list>
+      <ion-item>
+        <ion-select interface="action-sheet" placeholder="Select the Type">
+          <ion-select-option value="1">Academic Achivements</ion-select-option>
+          <ion-select-option value="2">Personal Experiences</ion-select-option>
+          <ion-select-option value="3">Programming Skills</ion-select-option>
+          <ion-select-option value="4">Other Skills</ion-select-option>
+          <ion-select-option value="5">Random Achivements</ion-select-option>
+          <ion-select-option value="6">Ongoing Projects</ion-select-option>
+          <ion-select-option value="7">Future Projects</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-button expand="block">Submit</ion-button>
+
+</ion-content>
