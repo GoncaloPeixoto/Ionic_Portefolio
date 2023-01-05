@@ -1,7 +1,12 @@
 import { ProjectsModule } from "../models/projects.js";
 
 export const getALLProjects = async (req, res) => {
-  const Projects = await ProjectsModule.findAll();
+  const Projects = await ProjectsModule.findAll({ where: { isWanted: 0 } });
+  return res.send({ Projects });
+};
+
+export const getALLgetALLProjectsWanted = async (req, res) => {
+  const Projects = await ProjectsModule.findAll({ where: { isWanted: 1 } });
   return res.send({ Projects });
 };
 
@@ -18,6 +23,7 @@ export const newProjects = async (req, res) => {
   const newProjects = {
     title: req.body.title,
     description: req.body.description,
+    isWanted: req.body.isWanted,
   };
   await ProjectsModule.create(newProjects);
 

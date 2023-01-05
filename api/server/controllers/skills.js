@@ -23,6 +23,7 @@ export const newSkill = async (req, res) => {
   const newSkill = {
     title: req.body.title,
     description: req.body.description,
+    isWanted: req.body.isWanted,
   };
   await SkillModule.create(newSkill);
 

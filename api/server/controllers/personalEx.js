@@ -19,6 +19,7 @@ export const newPersonalEx = async (req, res) => {
   const newPex = {
     title: req.body.title,
     description: req.body.description,
+    isWanted: req.body.isWanted,
   };
   await PersonalExModule.create(newPex);
 

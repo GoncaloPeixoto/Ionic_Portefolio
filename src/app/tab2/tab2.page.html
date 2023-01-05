@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="secondary">
+  <ion-toolbar color="primary">
     <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="type">
       <ion-segment-button value="Achived">
         <ion-label>{{ "sk1" | translate}}</ion-label>
@@ -15,108 +15,257 @@
       <ion-toggle (ionChange)="toggleTheme($event)"></ion-toggle>
       <ion-button (click)="refreshPage()" (click)="changeLanguage('en')">
         {{'en' | translate }}
-        </ion-button>
-        <ion-button (click)="refreshPage()" (click)="changeLanguage('pt')">
+      </ion-button>
+      <ion-button (click)="refreshPage()" (click)="changeLanguage('pt')">
         {{'pt' | translate }}
-        </ion-button>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
+<!-- Achived -->
+
 <ion-content [fullscreen]="false" [ngSwitch]="type">
   <ion-list [inset]="true" *ngSwitchCase="'Achived'">
-    <ion-item-group>  
-      <!-- Academic Achivements/Skills -->
-      <ion-item-divider>
-        <ion-label>Academic Achivements/Skills</ion-label>
-      </ion-item-divider>
-    <ion-item *ngFor="let item of skillArray">
-      <ion-label>{{item.title}}</ion-label>
-      <ion-button (click)="openModalSkills(item)">See More</ion-button>
-    </ion-item>
-
-    <!-- Personal Experiences -->
-    <ion-item-divider>
-      <ion-label>Personal Experiences</ion-label>
-    </ion-item-divider>
-    <ion-item *ngFor="let item of PexArray" >
-      <ion-label>{{item.title}}</ion-label>
-      <ion-button (click)="openModalPex(item)">See More</ion-button>
-    </ion-item>
-    <!-- Programming skills -->
-    <ion-item-divider>
-      <ion-label>Programming skills</ion-label>
-    </ion-item-divider>
-    <ion-item *ngFor="let item of PSArray">
-      <ion-label>{{item.title}}</ion-label>
-    </ion-item>
-    <!-- Other skills -->
-    <ion-item-divider>
-      <ion-label>Other skills</ion-label>
-    </ion-item-divider>
-    <ion-item *ngFor="let item of OskillsArray">
-      <ion-label>{{item.title}}</ion-label>
-    </ion-item>
-     <!-- Random achievements -->
-     <ion-item-divider>
-      <ion-label>Random achievements</ion-label>
-    </ion-item-divider>
-    <ion-item *ngFor="let item of RAArray">
-      <ion-label>{{item.title}}</ion-label>
-    </ion-item>
-  </ion-item-group>
-  </ion-list>
-
-
-                    <!-- Wanted -->
-
-    <ion-list [inset]="true" *ngSwitchCase="'Wanted'">
-      <ion-item-group>
-
-        <!-- Academic Achivements/Skills -->
     <ion-item-divider>
       <ion-label>Academic Achivements/Skills</ion-label>
     </ion-item-divider>
+    <ion-item-sliding *ngFor="let item of skillArray">
+      <ion-item-options side="start">
+        <ion-item-option color="danger"
+          ><ion-icon name="trash-bin" (click)="deleteSkill(item.id)"></ion-icon
+        ></ion-item-option>
+      </ion-item-options>
+      <ion-item>
+        <ion-label>{{item.title}}</ion-label>
+        <ion-button (click)="openModalSkills(item)"
+          ><ion-icon name="search-outline"></ion-icon
+        ></ion-button>
+      </ion-item>
+    </ion-item-sliding>
 
-    <ion-item *ngFor="let item of skillWantedArray" disabled="true">
-      <ion-label>{{item.title}}</ion-label>
-    </ion-item>
-  
-    <!-- Personal Experiences -->
     <ion-item-divider>
       <ion-label>Personal Experiences</ion-label>
     </ion-item-divider>
-    
-    <ion-item *ngFor="let item of PexWantedArray" disabled="true">
-      <ion-label>{{item.title}}</ion-label>
-    </ion-item>
+    <ion-item-sliding *ngFor="let item of PexArray">
+      <ion-item-options side="start">
+        <ion-item-option color="danger"
+          ><ion-icon name="trash-bin" (click)="deletePex(item.id)"></ion-icon
+        ></ion-item-option>
+      </ion-item-options>
+      <ion-item>
+        <ion-label>{{item.title}}</ion-label>
+        <ion-button (click)="openModalPex(item)"
+          ><ion-icon name="search-outline"></ion-icon
+        ></ion-button>
+      </ion-item>
+    </ion-item-sliding>
 
-  </ion-item-group>
+    <ion-item-divider>
+      <ion-label>Programming skills</ion-label>
+    </ion-item-divider>
+    <ion-item-sliding *ngFor="let item of PSArray">
+      <ion-item-options side="start">
+        <ion-item-option color="danger"
+          ><ion-icon name="trash-bin" (click)="deletePSkill(item.id)"></ion-icon
+        ></ion-item-option>
+      </ion-item-options>
+      <ion-item>
+        <ion-label>{{item.title}}</ion-label>
+      </ion-item>
+    </ion-item-sliding>
+
+    <ion-item-divider>
+      <ion-label>Other skills</ion-label>
+    </ion-item-divider>
+    <ion-item-sliding *ngFor="let item of OskillsArray">
+      <ion-item-options side="start">
+        <ion-item-options side="start">
+          <ion-item-option color="danger"
+            ><ion-icon
+              name="trash-bin"
+              (click)="deleteOSkill(item.id)"
+            ></ion-icon
+          ></ion-item-option>
+        </ion-item-options>
+      </ion-item-options>
+      <ion-item>
+        <ion-label>{{item.title}}</ion-label>
+      </ion-item>
+    </ion-item-sliding>
+
+    <ion-item-divider>
+      <ion-label>Random achievements</ion-label>
+    </ion-item-divider>
+    <ion-item-sliding *ngFor="let item of RAArray">
+      <ion-item-options side="start">
+        <ion-item-option color="danger"
+          ><ion-icon name="trash-bin" (click)="deleteRA(item.id)"></ion-icon
+        ></ion-item-option>
+      </ion-item-options>
+      <ion-item>
+        <ion-label>{{item.title}}</ion-label>
+      </ion-item>
+    </ion-item-sliding>
   </ion-list>
 
-            <!-- Work In progress -->
+  <!-- Wanted -->
 
-  <ion-list [inset]="true" *ngSwitchCase="'WIP'">
-    <ion-item-group>
+  <ion-list [inset]="true" *ngSwitchCase="'Wanted'">
+    <ion-item-divider>
+      <ion-label>Academic Achivements/Skills</ion-label>
+    </ion-item-divider>
+    <ion-item-sliding *ngFor="let item of skillWantedArray">
+      <ion-item-options side="start">
+        <ion-item-option color="danger"
+          ><ion-icon name="trash-bin" (click)="deleteSkill(item.id)"></ion-icon
+        ></ion-item-option>
+      </ion-item-options>
+      <ion-item disabled="true">
+        <ion-label>{{item.title}}</ion-label>
+      </ion-item>
+    </ion-item-sliding>
 
-<!-- Ongoing Projects -->
+    <ion-item-divider>
+      <ion-label>Personal Experiences</ion-label>
+    </ion-item-divider>
+    <ion-item-sliding *ngFor="let item of PexWantedArray">
+      <ion-item-options side="start">
+        <ion-item-option color="danger"
+          ><ion-icon name="trash-bin" (click)="deletePex(item.id)"></ion-icon
+        ></ion-item-option>
+      </ion-item-options>
+      <ion-item disabled="true">
+        <ion-label>{{item.title}}</ion-label>
+      </ion-item>
+    </ion-item-sliding>
+
+    <ion-item-divider>
+      <ion-label>Programming skills</ion-label>
+    </ion-item-divider>
+    <ion-item-sliding *ngFor="let item of PSWantedArray">
+      <ion-item-options side="start">
+        <ion-item-option color="danger"
+          ><ion-icon name="trash-bin" (click)="deletePSkill(item.id)"></ion-icon
+        ></ion-item-option>
+      </ion-item-options>
+      <ion-item disabled="true">
+        <ion-label>{{item.title}}</ion-label>
+      </ion-item>
+    </ion-item-sliding>
+
+    <ion-item-divider>
+      <ion-label>Other skills</ion-label>
+    </ion-item-divider>
+    <ion-item-sliding *ngFor="let item of OskillsWantedArray">
+      <ion-item-options side="start">
+        <ion-item-option color="danger"
+          ><ion-icon name="trash-bin" (click)="deleteOSkill(item.id)"></ion-icon
+        ></ion-item-option>
+      </ion-item-options>
+      <ion-item disabled="true">
+        <ion-label>{{item.title}}</ion-label>
+      </ion-item>
+    </ion-item-sliding>
+
+    <ion-item-divider>
+      <ion-label>Random achievements</ion-label>
+    </ion-item-divider>
+    <ion-item-sliding *ngFor="let item of RAWantedArray">
+      <ion-item-options side="start">
+        <ion-item-option color="danger"
+          ><ion-icon name="trash-bin" (click)="deleteRA(item.id)"></ion-icon
+        ></ion-item-option>
+      </ion-item-options>
+      <ion-item disabled="true">
+        <ion-label>{{item.title}}</ion-label>
+      </ion-item>
+    </ion-item-sliding>
+
     <ion-item-divider>
       <ion-label>Ongoing Projects</ion-label>
     </ion-item-divider>
+    <ion-item-sliding *ngFor="let item of ProjectsWantedArray">
+      <ion-item-options side="start">
+        <ion-item-option color="danger"
+          ><ion-icon
+            name="trash-bin"
+            (click)="deleteProject(item.id)"
+          ></ion-icon
+        ></ion-item-option>
+      </ion-item-options>
+      <ion-item disabled="true">
+        <ion-label>{{item.title}}</ion-label>
+      </ion-item>
+    </ion-item-sliding>
 
-    <ion-item *ngFor="let item of ProjectsArray">
-      <ion-label>{{item.title}}</ion-label>
-      <ion-button (click)="openModalProj(item)">See More</ion-button>
-    </ion-item>
-<!-- Future Projects -->
     <ion-item-divider>
       <ion-label>Future Projects</ion-label>
     </ion-item-divider>
-
-    <ion-item *ngFor="let item of FutureProjectsArray" disabled="true">
-      <ion-label>{{item.title}}</ion-label>
-    </ion-item>
-    </ion-item-group>
+    <ion-item-sliding *ngFor="let item of FutureProjectsWantedArray">
+      <ion-item-options side="start">
+        <ion-item-option color="danger"
+          ><ion-icon
+            name="trash-bin"
+            (click)="deleteFutureSkill(item.id)"
+          ></ion-icon
+        ></ion-item-option>
+      </ion-item-options>
+      <ion-item disabled="true">
+        <ion-label>{{item.title}}</ion-label>
+      </ion-item>
+    </ion-item-sliding>
   </ion-list>
-</ion-content>
 
+  <!-- Work In progress -->
+
+  <ion-list [inset]="true" *ngSwitchCase="'WIP'">
+    <ion-item-divider>
+      <ion-label>Ongoing Projects</ion-label>
+    </ion-item-divider>
+    <ion-item-sliding *ngFor="let item of ProjectsArray">
+      <ion-item-options side="start">
+        <ion-item-option color="danger"
+          ><ion-icon
+            name="trash-bin"
+            (click)="deleteProject(item.id)"
+          ></ion-icon
+        ></ion-item-option>
+      </ion-item-options>
+      <ion-item>
+        <ion-label>{{item.title}}</ion-label>
+        <ion-button (click)="openModalProj(item)"
+          ><ion-icon name="search-outline"></ion-icon
+        ></ion-button>
+      </ion-item>
+    </ion-item-sliding>
+
+    <ion-item-divider>
+      <ion-label>Future Projects</ion-label>
+    </ion-item-divider>
+    <ion-item-sliding *ngFor="let item of FutureProjectsArray">
+      <ion-item-options side="start">
+        <ion-item-option color="danger"
+          ><ion-icon
+            name="trash-bin"
+            (click)="deleteFutureSkill(item.id)"
+          ></ion-icon
+        ></ion-item-option>
+      </ion-item-options>
+      <ion-item disabled="true">
+        <ion-label>{{item.title}}</ion-label>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button size="small">
+      <ion-icon name="chevron-up-circle"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button size="small" (click)="openModalCreate()">
+        <ion-icon name="add-circle"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

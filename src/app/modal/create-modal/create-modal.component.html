@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismissModal()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title>Add a Skill</ion-title>
+    <ion-buttons slot="end">
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+  <ion-card class="ion-padding-end">
+    <form (ngSubmit)="newItem()">
+    <ion-list>
+          <ion-item>
+            <ion-label>Type</ion-label>
+            <ion-select [(ngModel)]="select" name="select" interface="action-sheet" placeholder="Type" expand="block">
+              <ion-select-option value="newSkill">Academic Achivements</ion-select-option>
+              <ion-select-option value="newPex">Personal Experiences</ion-select-option>
+              <ion-select-option value="newPSkill">Programming Skills</ion-select-option>
+              <ion-select-option value="newOSkill">Other Skills</ion-select-option>
+              <ion-select-option value="newRA">Random Achivements</ion-select-option>
+              <ion-select-option value="newProject">Ongoing Projects</ion-select-option>
+              <ion-select-option value="newFutureSkill">Future Projects</ion-select-option>
+            </ion-select>
+          </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Title</ion-label>
+        <ion-input placeholder="Enter Title"  required [(ngModel)]="title" name="titulo" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Description</ion-label>
+        <ion-input placeholder="Enter Description" required [(ngModel)]="description" name="description"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-toggle slot="end" checked="true" [(ngModel)]="toggle" name="toggle"></ion-toggle>
+        <ion-label>Select the Is wanted Status</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-button type="submit" expand="block">Submit</ion-button>
+  </form>
+  </ion-card>
+
+
+</ion-content>
