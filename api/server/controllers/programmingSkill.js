@@ -1,7 +1,12 @@
 import { ProgrammingModule } from "../models/programmingSkill.js";
 
 export const getALLProgrammingSkill = async (req, res) => {
-  const PS = await ProgrammingModule.findAll();
+  const PS = await ProgrammingModule.findAll({ where: { isWanted: 0 } });
+  return res.send({ PS });
+};
+
+export const getALLProgrammingSkillWanted = async (req, res) => {
+  const PS = await ProgrammingModule.findAll({ where: { isWanted: 1 } });
   return res.send({ PS });
 };
 
@@ -18,6 +23,7 @@ export const newProgrammingSkill = async (req, res) => {
   const newPS = {
     title: req.body.title,
     description: req.body.description,
+    isWanted: req.body.isWanted,
   };
   await ProgrammingModule.create(newPS);
 

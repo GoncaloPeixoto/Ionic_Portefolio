@@ -9,40 +9,40 @@
   </ion-toolbar>
 </ion-header>
 
+
+
 <ion-content>
   <ion-card class="ion-padding-end">
+    <form (ngSubmit)="newItem()">
     <ion-list>
+          <ion-item>
+            <ion-label>Type</ion-label>
+            <ion-select [(ngModel)]="select" name="select" interface="action-sheet" placeholder="Type" expand="block">
+              <ion-select-option value="newSkill">Academic Achivements</ion-select-option>
+              <ion-select-option value="newPex">Personal Experiences</ion-select-option>
+              <ion-select-option value="newPSkill">Programming Skills</ion-select-option>
+              <ion-select-option value="newOSkill">Other Skills</ion-select-option>
+              <ion-select-option value="newRA">Random Achivements</ion-select-option>
+              <ion-select-option value="newProject">Ongoing Projects</ion-select-option>
+              <ion-select-option value="newFutureSkill">Future Projects</ion-select-option>
+            </ion-select>
+          </ion-item>
       <ion-item>
-        <ion-label position="stacked">Input Title</ion-label>
-        <ion-input placeholder="Enter Title" required="true" ></ion-input>
+        <ion-label position="stacked">Title</ion-label>
+        <ion-input placeholder="Enter Title"  required [(ngModel)]="title" name="titulo" ></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="stacked">Input Description</ion-label>
-        <ion-input placeholder="Enter Description" required="true" ></ion-input>
+        <ion-label position="stacked">Description</ion-label>
+        <ion-input placeholder="Enter Description" required [(ngModel)]="description" name="description"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-toggle slot="end" checked="true" [(ngModel)]="toggle" name="toggle"></ion-toggle>
         <ion-label>Select the Is wanted Status</ion-label>
       </ion-item>
     </ion-list>
+    <ion-button type="submit" expand="block">Submit</ion-button>
+  </form>
   </ion-card>
 
-  <ion-card>
-    <ion-list>
-      <ion-item>
-        <ion-select interface="action-sheet" placeholder="Select the Type" expand="block">
-          <ion-select-option value="1">Academic Achivements</ion-select-option>
-          <ion-select-option value="2">Personal Experiences</ion-select-option>
-          <ion-select-option value="3">Programming Skills</ion-select-option>
-          <ion-select-option value="4">Other Skills</ion-select-option>
-          <ion-select-option value="5">Random Achivements</ion-select-option>
-          <ion-select-option value="6">Ongoing Projects</ion-select-option>
-          <ion-select-option value="7">Future Projects</ion-select-option>
-        </ion-select>
-      </ion-item>
-    </ion-list>
-  </ion-card>
-
-  <ion-button expand="block">Submit</ion-button>
 
 </ion-content>

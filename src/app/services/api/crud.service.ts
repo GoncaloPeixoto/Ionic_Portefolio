@@ -98,17 +98,18 @@ export class CrudService {
   return this.http.get<FP>(`${this.url}/api/${controller}`);
   }
 
-  // createSkill(controller : string, Skill : any) {
-  //   return this.http.post(`${this.url}/api/${controller}/create`, Skill);
-  //   }
+
+  create(controller: string, model: any) {
+    return this.http.post(`${this.url}/api/${controller}`, model);
+  }
 
 
-    // createSkill(Skill: Skill): Observable<any> {
-    //   return this.HttpClient.post<Skill>(this.endpoint, JSON.stringify(user), this.httpOptions)
-    //     .pipe(
-    //       catchError(this.handleError<User>('Error occured'))
-    //     );
-    // }
+
+    delete(controller: string, id: number) {
+      return this.http.delete(`${this.url}/api/${controller}/${id}`,{responseType:"text"});
+    }
+}
+
   // getById(controller : string, id : string) {
   // return this.http.get(`${this.url}/api/${controller}/${id}`);
   // }
@@ -116,9 +117,8 @@ export class CrudService {
   // return this.http.post(`${this.url}/api/${controller}/create`, model);
   // }
   // update(controller : string, model : any) {
-  // return this.http.post(`${this.url}/api/${controller}/update`, model);
+  // return this.http.put(`${this.url}/api/${controller}/update`, model);
   // }
   // delete(controller : string, id : string) {
-  // return this.http.post(`${this.url}/api/${controller}/delete`, {id : id});
+  // return this.http.delete(`${this.url}/api/${controller}/delete`, {id : id});
   // }
-}

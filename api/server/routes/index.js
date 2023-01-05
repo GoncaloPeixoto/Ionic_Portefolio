@@ -14,6 +14,7 @@ import {
   newRandomAchivements,
   updateRandomAchivements,
   deleteRandomAchivements,
+  getALLRandomAchivementsWanted,
 } from "../controllers/randomAchivements.js";
 
 import {
@@ -22,6 +23,7 @@ import {
   newProjects,
   updateProjects,
   deleteProjects,
+  getALLgetALLProjectsWanted,
 } from "../controllers/projetcts.js";
 
 import {
@@ -30,6 +32,7 @@ import {
   newProgrammingSkill,
   updateProgrammingSkill,
   deleteProgrammingSkill,
+  getALLProgrammingSkillWanted,
 } from "../controllers/programmingSkill.js";
 
 import {
@@ -47,6 +50,7 @@ import {
   newOtherSkills,
   updateOtherSkills,
   deleteOtherSkills,
+  getALLOtherSkillsWanted,
 } from "../controllers/otherSkills.js";
 
 import {
@@ -55,6 +59,7 @@ import {
   newFutureProjects,
   updateFutureProjects,
   deleteFutureProjects,
+  getALFutureProjectsWanted,
 } from "../controllers/futureProjects.js";
 
 const routes = Router();
@@ -67,18 +72,21 @@ routes.post("/updateSkill/:id", updateSkill);
 routes.delete("/deleteSkill/:id", deleteSkill);
 
 routes.get("/RA", getRandomAchivements);
+routes.get("/RAWanted", getALLRandomAchivementsWanted);
 routes.get("/RA/:id", getRandomAchivementsId);
 routes.post("/newRA", newRandomAchivements);
 routes.post("/updateRA/:id", updateRandomAchivements);
 routes.delete("/deleteRA/:id", deleteRandomAchivements);
 
 routes.get("/Projects", getALLProjects);
+routes.get("/ProjectsWanted", getALLgetALLProjectsWanted);
 routes.get("/Project/:id", getProjectsid);
 routes.post("/newProject", newProjects);
 routes.post("/updateProject/:id", updateProjects);
 routes.delete("/deleteProject/:id", deleteProjects);
 
 routes.get("/PS", getALLProgrammingSkill);
+routes.get("/PSWanted", getALLProgrammingSkillWanted);
 routes.get("/PSkill/:id", getProgrammingSkillId);
 routes.post("/newPSkill", newProgrammingSkill);
 routes.post("/updatePSkill/:id", updateProgrammingSkill);
@@ -92,12 +100,14 @@ routes.post("/updatePex/:id", updatePersonalEx);
 routes.delete("/deletePex/:id", deletePersonalEx);
 
 routes.get("/Oskills", getALLOtherSkills);
+routes.get("/OskillsWanted", getALLOtherSkillsWanted);
 routes.get("/OSkill/:id", getOtherSkillsid);
 routes.post("/newOSkill", newOtherSkills);
 routes.post("/updateOSkill/:id", updateOtherSkills);
 routes.delete("/deleteOSkill/:id", deleteOtherSkills);
 
 routes.get("/FP", getALLFutureProjects);
+routes.get("/FPWanted", getALFutureProjectsWanted);
 routes.get("/Futureskill/:id", getFutureProjectsid);
 routes.post("/newFutureSkill", newFutureProjects);
 routes.post("/updateFutureSkill/:id", updateFutureProjects);

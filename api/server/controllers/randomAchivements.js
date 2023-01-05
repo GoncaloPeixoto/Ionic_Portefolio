@@ -1,7 +1,12 @@
 import { RandomAchivementsModule } from "../models/randomAchivments.js";
 
 export const getRandomAchivements = async (req, res) => {
-  const RA = await RandomAchivementsModule.findAll();
+  const RA = await RandomAchivementsModule.findAll({ where: { isWanted: 0 } });
+  return res.send({ RA });
+};
+
+export const getALLRandomAchivementsWanted = async (req, res) => {
+  const RA = await RandomAchivementsModule.findAll({ where: { isWanted: 1 } });
   return res.send({ RA });
 };
 
@@ -18,6 +23,7 @@ export const newRandomAchivements = async (req, res) => {
   const newRA = {
     title: req.body.title,
     description: req.body.description,
+    isWanted: req.body.isWanted,
   };
   await RandomAchivementsModule.create(newRA);
 

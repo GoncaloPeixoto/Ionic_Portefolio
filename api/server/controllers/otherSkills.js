@@ -1,7 +1,12 @@
 import { OtherSkillsModule } from "../models/otherSkills.js";
 
 export const getALLOtherSkills = async (req, res) => {
-  const Oskills = await OtherSkillsModule.findAll();
+  const Oskills = await OtherSkillsModule.findAll({ where: { isWanted: 0 } });
+  return res.send({ Oskills });
+};
+
+export const getALLOtherSkillsWanted = async (req, res) => {
+  const Oskills = await OtherSkillsModule.findAll({ where: { isWanted: 1 } });
   return res.send({ Oskills });
 };
 
@@ -18,6 +23,7 @@ export const newOtherSkills = async (req, res) => {
   const newOskills = {
     title: req.body.title,
     description: req.body.description,
+    isWanted: req.body.isWanted,
   };
   await OtherSkillsModule.create(newOskills);
 

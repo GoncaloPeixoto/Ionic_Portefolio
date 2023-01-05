@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
+import { CrudService } from 'src/app/services/api/crud.service';
 @Component({
   selector: 'app-create-modal',
   templateUrl: './create-modal.component.html',
@@ -7,17 +8,54 @@ import { ModalController } from '@ionic/angular';
 })
 export class CreateModalComponent implements OnInit {
 
-  id: any;
   title: any;
-  description: any;
-  constructor(private modalCtrl: ModalController) {}
+  description:any;
+  select:any;
+  toggle: any;
+  constructor(
+    private alertController: AlertController,
+    private modalCtrl: ModalController,
+    private crudService: CrudService,) {}
 
-  ngOnInit() {
-    this.title;
-    this.description;
-  }
+  ngOnInit() {}
 
   dismissModal() {
     this.modalCtrl.dismiss();
+  }
+
+  refreshPage() {
+    location.reload();
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Erro',
+      message: 'Please check the data and try again',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+
+  newItem() {
+    if (this.title && this.description && this.select) {
+        if(this.toggle== undefined){
+           this.toggle=false
+        }
+      const newItem = {
+        title: this.title,
+        description: this.description,
+        isWanted: this.toggle
+      };
+      console.log(newItem);
+      console.log(this.select);
+      this.crudService.create(this.select, newItem).subscribe((res) => {
+        console.log(res);
+      });
+      this.dismissModal();
+    } else {
+      this.dismissModal();
+      this.presentAlert()
+    }
   }
 }

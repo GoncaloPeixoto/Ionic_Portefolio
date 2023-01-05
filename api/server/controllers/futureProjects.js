@@ -1,7 +1,12 @@
 import { FutureProjectsModule } from "../models/futureProjects.js";
 
 export const getALLFutureProjects = async (req, res) => {
-  const FP = await FutureProjectsModule.findAll();
+  const FP = await FutureProjectsModule.findAll({ where: { isWanted: 0 } });
+  return res.send({ FP });
+};
+
+export const getALFutureProjectsWanted = async (req, res) => {
+  const FP = await FutureProjectsModule.findAll({ where: { isWanted: 1 } });
   return res.send({ FP });
 };
 
@@ -18,6 +23,7 @@ export const newFutureProjects = async (req, res) => {
   const newFP = {
     title: req.body.title,
     description: req.body.description,
+    isWanted: req.body.isWanted,
   };
   await FutureProjectsModule.create(newFP);
 

@@ -30,6 +30,12 @@ export class Tab2Page {
   ProjectsArray: any = [];
   FutureProjectsArray: any = [];
 
+  PSWantedArray: any = [];
+  OskillsWantedArray: any = [];
+  RAWantedArray: any = [];
+  ProjectsWantedArray: any = [];
+  FutureProjectsWantedArray: any = [];
+
   constructor(
     private translateService : TranslateService,
     private toastController : ToastController,
@@ -122,6 +128,18 @@ export class Tab2Page {
         console.log(res);
       })
   }
+
+  async loadPSWanted(){
+    const loading = await this.loadingCtrl.create({
+      spinner:'dots'});
+      await loading.present();
+      this.crudService.getPS("PSWanted").subscribe((res)=>{
+        loading.dismiss()
+        this.PSWantedArray = [...this.PSWantedArray,...res.PS];
+        console.log(res);
+      })
+  }
+
   async loadOskills(){
     const loading = await this.loadingCtrl.create({
       spinner:'dots'});
@@ -129,6 +147,17 @@ export class Tab2Page {
       this.crudService.getOskills("Oskills").subscribe((res)=>{
         loading.dismiss()
         this.OskillsArray = [...this.OskillsArray,...res.Oskills];
+        console.log(res);
+      })
+  }
+
+  async loadOskillsWanted(){
+    const loading = await this.loadingCtrl.create({
+      spinner:'dots'});
+      await loading.present();
+      this.crudService.getOskills("OskillsWanted").subscribe((res)=>{
+        loading.dismiss()
+        this.OskillsWantedArray = [...this.OskillsWantedArray,...res.Oskills];
         console.log(res);
       })
   }
@@ -144,6 +173,17 @@ export class Tab2Page {
       })
   }
 
+  async loadRAWanted(){
+    const loading = await this.loadingCtrl.create({
+      spinner:'dots'});
+      await loading.present();
+      this.crudService.getRA("RAWanted").subscribe((res)=>{
+        loading.dismiss()
+        this.RAWantedArray = [...this.RAWantedArray,...res.RA];
+        console.log(res);
+      })
+  }
+
   async loadProjects(){
     const loading = await this.loadingCtrl.create({
       spinner:'dots'});
@@ -155,6 +195,18 @@ export class Tab2Page {
       })
   }
 
+  async loadProjectsWanted(){
+    const loading = await this.loadingCtrl.create({
+      spinner:'dots'});
+      await loading.present();
+      this.crudService.getProjects("ProjectsWanted").subscribe((res)=>{
+        loading.dismiss()
+        this.ProjectsWantedArray = [...this.ProjectsWantedArray,...res.Projects];
+        console.log(res);
+      })
+  }
+
+
   async loadFutureProjects(){
     const loading = await this.loadingCtrl.create({
       spinner:'dots'});
@@ -162,6 +214,17 @@ export class Tab2Page {
       this.crudService.getFutureProjects("FP").subscribe((res)=>{
         loading.dismiss()
         this.FutureProjectsArray = [...this.FutureProjectsArray,...res.FP];
+        console.log(res);
+      })
+  }
+
+  async loadFutureProjectsWanted(){
+    const loading = await this.loadingCtrl.create({
+      spinner:'dots'});
+      await loading.present();
+      this.crudService.getFutureProjects("FPWanted").subscribe((res)=>{
+        loading.dismiss()
+        this.FutureProjectsWantedArray = [...this.FutureProjectsWantedArray,...res.FP];
         console.log(res);
       })
   }
@@ -207,29 +270,19 @@ export class Tab2Page {
 
   async openModalCreate() {
     console.log();
-    const modalProjects = await this.modalCtrl.create({
+    const modalCreateItem = await this.modalCtrl.create({
       component: CreateModalComponent,
 
     });
-    await modalProjects.present();
+    modalCreateItem.onDidDismiss().then(()=>{
+      location.reload()
+    })
+    await modalCreateItem.present();
   }
-
-  async openModalDelete() {
-    console.log();
-    const modalProjects = await this.modalCtrl.create({
-      component: RemoveModalComponent,
-
-    });
-    await modalProjects.present();
-  }
-
-  async openModalUpdate() {
-    console.log();
-    const modalProjects = await this.modalCtrl.create({
-      component: UpdateModalComponent,
-
-    });
-    await modalProjects.present();
+  
+  async deleteXXX (id:number){
+    this.crudService.delete("deleteRA" , id).subscribe((res)=>{})
+    location.reload();
   }
 
   ngOnInit() {this.loadSkill(),
@@ -237,10 +290,15 @@ export class Tab2Page {
     this.loadPS(),
     this.loadOskills(),
     this.loadRA(),
+    this.loadProjects(),
+    this.loadFutureProjects(),
     this.loadSkillWanted(),
     this.loadPexWanted(),
-    this.loadProjects(),
-    this.loadFutureProjects()}
+    this.loadPSWanted(),
+    this.loadOskillsWanted(),
+    this.loadRAWanted(),
+    this.loadProjectsWanted(),
+    this.loadFutureProjectsWanted()}
   
   @ViewChild(IonModal)
   modal!: IonModal;
