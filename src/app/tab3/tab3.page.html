@@ -1,61 +1,59 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>
-      {{ 't3' | translate}}
-    </ion-title>
+    <ion-title> {{ 't3' | translate}} </ion-title>
     <ion-buttons slot="end">
       <ion-toggle (ionChange)="toggleTheme($event)"></ion-toggle>
       <ion-button (click)="refreshPage()" (click)="changeLanguage('en')">
         {{'en' | translate }}
-        </ion-button>
-        <ion-button (click)="refreshPage()" (click)="changeLanguage('pt')">
+      </ion-button>
+      <ion-button (click)="refreshPage()" (click)="changeLanguage('pt')">
         {{'pt' | translate }}
-        </ion-button>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-text-center">
-
   <h1>{{'c1' | translate}}</h1>
-  <a [attr.href]="'https://github.com/GoncaloPeixoto'">
-  <ion-button size="large">
+
+  <ion-button size="large" href="https://github.com/GoncaloPeixoto">
     <ion-icon name="logo-github"></ion-icon>
   </ion-button>
-</a>
-<a [attr.href]="'www.linkedin.com/in/GonçaloPeixoto'">
-  <ion-button size="large">
+
+  <ion-button size="large" href="https://www.linkedin.com/in/gonçalopeixoto/">
     <ion-icon name="logo-linkedin"></ion-icon>
   </ion-button>
-</a>
-<a [attr.href]="'https://discordapp.com/users/358155707771781123'">
-  <ion-button size="large">
+
+  <ion-button
+    size="large"
+    href="https://discordapp.com/users/358155707771781123"
+  >
     <ion-icon name="logo-discord"></ion-icon>
   </ion-button>
-</a>
-<a [attr.href]="'https://www.instagram.com/goncalo181/'">
-  <ion-button size="large">
+
+  <ion-button size="large" href="https://www.instagram.com/goncalo181/">
     <ion-icon name="logo-instagram"></ion-icon>
   </ion-button>
-</a>
+
   <h1>{{'c2' | translate}}</h1>
 
   <ion-list>
+    <ion-item>
+      <ion-label>{{'f1' | translate}}</ion-label>
+      <ion-input placeholder="Enter your name"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label>{{'f1' | translate}}</ion-label>
-    <ion-input placeholder="Enter your name"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label>{{'f2' | translate}}</ion-label>
+      <ion-input placeholder="Enter your message"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label>{{'f2' | translate}}</ion-label>
-    <ion-input placeholder="Enter your message"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>{{'f3' | translate}}</ion-label>
-    <ion-input type="email" placeholder="email@domain.com"></ion-input>
-  </ion-item>
-</ion-list>
-<ion-button (click)="refreshPage()" (click)="presentToast('bottom')" >{{'b1' | translate}}</ion-button>
+    <ion-item>
+      <ion-label>{{'f3' | translate}}</ion-label>
+      <ion-input type="email" placeholder="email@domain.com"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button (click)="refreshPage()" (click)="presentToast('bottom')"
+    >{{'b1' | translate}}</ion-button
+  >
 </ion-content>
