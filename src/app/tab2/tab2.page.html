@@ -23,6 +23,8 @@
   </ion-toolbar>
 </ion-header>
 
+<!-- Achived -->
+
 <ion-content [fullscreen]="false" [ngSwitch]="type">
   <ion-list [inset]="true" *ngSwitchCase="'Achived'">
     <ion-item-divider>
@@ -31,12 +33,14 @@
     <ion-item-sliding *ngFor="let item of skillArray">
       <ion-item-options side="start">
         <ion-item-option color="danger"
-          ><ion-icon name="trash-bin"></ion-icon
+          ><ion-icon name="trash-bin" (click)="deleteSkill(item.id)"></ion-icon
         ></ion-item-option>
       </ion-item-options>
       <ion-item>
         <ion-label>{{item.title}}</ion-label>
-        <ion-button (click)="openModalSkills(item)">See More</ion-button>
+        <ion-button (click)="openModalSkills(item)"
+          ><ion-icon name="search-outline"></ion-icon
+        ></ion-button>
       </ion-item>
     </ion-item-sliding>
 
@@ -45,13 +49,15 @@
     </ion-item-divider>
     <ion-item-sliding *ngFor="let item of PexArray">
       <ion-item-options side="start">
-        <ion-item-option color="success"
-          ><ion-icon name="trash-bin"></ion-icon
+        <ion-item-option color="danger"
+          ><ion-icon name="trash-bin" (click)="deletePex(item.id)"></ion-icon
         ></ion-item-option>
       </ion-item-options>
       <ion-item>
         <ion-label>{{item.title}}</ion-label>
-        <ion-button (click)="openModalPex(item)">See More</ion-button>
+        <ion-button (click)="openModalPex(item)"
+          ><ion-icon name="search-outline"></ion-icon
+        ></ion-button>
       </ion-item>
     </ion-item-sliding>
 
@@ -60,8 +66,8 @@
     </ion-item-divider>
     <ion-item-sliding *ngFor="let item of PSArray">
       <ion-item-options side="start">
-        <ion-item-option color="success"
-          ><ion-icon name="trash-bin"></ion-icon
+        <ion-item-option color="danger"
+          ><ion-icon name="trash-bin" (click)="deletePSkill(item.id)"></ion-icon
         ></ion-item-option>
       </ion-item-options>
       <ion-item>
@@ -74,9 +80,14 @@
     </ion-item-divider>
     <ion-item-sliding *ngFor="let item of OskillsArray">
       <ion-item-options side="start">
-        <ion-item-option color="success"
-          ><ion-icon name="trash-bin"></ion-icon
-        ></ion-item-option>
+        <ion-item-options side="start">
+          <ion-item-option color="danger"
+            ><ion-icon
+              name="trash-bin"
+              (click)="deleteOSkill(item.id)"
+            ></ion-icon
+          ></ion-item-option>
+        </ion-item-options>
       </ion-item-options>
       <ion-item>
         <ion-label>{{item.title}}</ion-label>
@@ -89,7 +100,7 @@
     <ion-item-sliding *ngFor="let item of RAArray">
       <ion-item-options side="start">
         <ion-item-option color="danger"
-          ><ion-icon name="trash-bin" (click)="deleteXXX(item.id)"></ion-icon
+          ><ion-icon name="trash-bin" (click)="deleteRA(item.id)"></ion-icon
         ></ion-item-option>
       </ion-item-options>
       <ion-item>
@@ -98,6 +109,8 @@
     </ion-item-sliding>
   </ion-list>
 
+  <!-- Wanted -->
+
   <ion-list [inset]="true" *ngSwitchCase="'Wanted'">
     <ion-item-divider>
       <ion-label>Academic Achivements/Skills</ion-label>
@@ -105,12 +118,11 @@
     <ion-item-sliding *ngFor="let item of skillWantedArray">
       <ion-item-options side="start">
         <ion-item-option color="danger"
-          ><ion-icon name="trash-bin" (click)="deleteXXX(item.id)"></ion-icon
+          ><ion-icon name="trash-bin" (click)="deleteSkill(item.id)"></ion-icon
         ></ion-item-option>
       </ion-item-options>
-      <ion-item>
+      <ion-item disabled="true">
         <ion-label>{{item.title}}</ion-label>
-        <ion-button (click)="openModalSkills(item)">See More</ion-button>
       </ion-item>
     </ion-item-sliding>
 
@@ -120,12 +132,11 @@
     <ion-item-sliding *ngFor="let item of PexWantedArray">
       <ion-item-options side="start">
         <ion-item-option color="danger"
-          ><ion-icon name="trash-bin" (click)="deleteXXX(item.id)"></ion-icon
+          ><ion-icon name="trash-bin" (click)="deletePex(item.id)"></ion-icon
         ></ion-item-option>
       </ion-item-options>
-      <ion-item>
+      <ion-item disabled="true">
         <ion-label>{{item.title}}</ion-label>
-        <ion-button (click)="openModalPex(item)">See More</ion-button>
       </ion-item>
     </ion-item-sliding>
 
@@ -135,10 +146,10 @@
     <ion-item-sliding *ngFor="let item of PSWantedArray">
       <ion-item-options side="start">
         <ion-item-option color="danger"
-          ><ion-icon name="trash-bin" (click)="deleteXXX(item.id)"></ion-icon
+          ><ion-icon name="trash-bin" (click)="deletePSkill(item.id)"></ion-icon
         ></ion-item-option>
       </ion-item-options>
-      <ion-item>
+      <ion-item disabled="true">
         <ion-label>{{item.title}}</ion-label>
       </ion-item>
     </ion-item-sliding>
@@ -149,10 +160,10 @@
     <ion-item-sliding *ngFor="let item of OskillsWantedArray">
       <ion-item-options side="start">
         <ion-item-option color="danger"
-          ><ion-icon name="trash-bin" (click)="deleteXXX(item.id)"></ion-icon
+          ><ion-icon name="trash-bin" (click)="deleteOSkill(item.id)"></ion-icon
         ></ion-item-option>
       </ion-item-options>
-      <ion-item>
+      <ion-item disabled="true">
         <ion-label>{{item.title}}</ion-label>
       </ion-item>
     </ion-item-sliding>
@@ -163,10 +174,10 @@
     <ion-item-sliding *ngFor="let item of RAWantedArray">
       <ion-item-options side="start">
         <ion-item-option color="danger"
-          ><ion-icon name="trash-bin" (click)="deleteXXX(item.id)"></ion-icon
+          ><ion-icon name="trash-bin" (click)="deleteRA(item.id)"></ion-icon
         ></ion-item-option>
       </ion-item-options>
-      <ion-item>
+      <ion-item disabled="true">
         <ion-label>{{item.title}}</ion-label>
       </ion-item>
     </ion-item-sliding>
@@ -177,10 +188,13 @@
     <ion-item-sliding *ngFor="let item of ProjectsWantedArray">
       <ion-item-options side="start">
         <ion-item-option color="danger"
-          ><ion-icon name="trash-bin" (click)="deleteXXX(item.id)"></ion-icon
+          ><ion-icon
+            name="trash-bin"
+            (click)="deleteProject(item.id)"
+          ></ion-icon
         ></ion-item-option>
       </ion-item-options>
-      <ion-item>
+      <ion-item disabled="true">
         <ion-label>{{item.title}}</ion-label>
       </ion-item>
     </ion-item-sliding>
@@ -191,24 +205,13 @@
     <ion-item-sliding *ngFor="let item of FutureProjectsWantedArray">
       <ion-item-options side="start">
         <ion-item-option color="danger"
-          ><ion-icon name="trash-bin" (click)="deleteXXX(item.id)"></ion-icon
+          ><ion-icon
+            name="trash-bin"
+            (click)="deleteFutureSkill(item.id)"
+          ></ion-icon
         ></ion-item-option>
       </ion-item-options>
-      <ion-item>
-        <ion-label>{{item.title}}</ion-label>
-      </ion-item>
-    </ion-item-sliding>
-
-    <ion-item-divider>
-      <ion-label>Random achievements</ion-label>
-    </ion-item-divider>
-    <ion-item-sliding *ngFor="let item of RAArray">
-      <ion-item-options side="start">
-        <ion-item-option color="danger"
-          ><ion-icon name="trash-bin" (click)="deleteXXX(item.id)"></ion-icon
-        ></ion-item-option>
-      </ion-item-options>
-      <ion-item>
+      <ion-item disabled="true">
         <ion-label>{{item.title}}</ion-label>
       </ion-item>
     </ion-item-sliding>
@@ -223,12 +226,17 @@
     <ion-item-sliding *ngFor="let item of ProjectsArray">
       <ion-item-options side="start">
         <ion-item-option color="danger"
-          ><ion-icon name="trash-bin" (click)="deleteXXX(item.id)"></ion-icon
+          ><ion-icon
+            name="trash-bin"
+            (click)="deleteProject(item.id)"
+          ></ion-icon
         ></ion-item-option>
       </ion-item-options>
       <ion-item>
         <ion-label>{{item.title}}</ion-label>
-        <ion-button (click)="openModalProj(item)">See More</ion-button>
+        <ion-button (click)="openModalProj(item)"
+          ><ion-icon name="search-outline"></ion-icon
+        ></ion-button>
       </ion-item>
     </ion-item-sliding>
 
@@ -238,10 +246,13 @@
     <ion-item-sliding *ngFor="let item of FutureProjectsArray">
       <ion-item-options side="start">
         <ion-item-option color="danger"
-          ><ion-icon name="trash-bin" (click)="deleteXXX(item.id)"></ion-icon
+          ><ion-icon
+            name="trash-bin"
+            (click)="deleteFutureSkill(item.id)"
+          ></ion-icon
         ></ion-item-option>
       </ion-item-options>
-      <ion-item>
+      <ion-item disabled="true">
         <ion-label>{{item.title}}</ion-label>
       </ion-item>
     </ion-item-sliding>
